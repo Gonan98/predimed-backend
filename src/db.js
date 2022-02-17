@@ -2,8 +2,8 @@ import { Sequelize } from 'sequelize';
 
 const sequelize = new Sequelize(
     'hospitaldb',
-    'root',
-    'password12345',
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
         host: 'localhost',
         dialect: 'mysql',
