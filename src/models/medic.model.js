@@ -1,24 +1,28 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../db";
+import { DataTypes } from 'sequelize';
+import sequelize from '../db';
 
-const Medic = sequelize.define('Medic', {
+const Medic = sequelize.define(
+  'Medic',
+  {
     firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'first_name'
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'first_name',
     },
     lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'last_name'
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'last_name',
     },
     contactCenter: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        field: 'contact_center'
-    }
-}, {
-    tableName: 'medics'
-});
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: 'contact_center',
+    },
+  },
+  {
+    tableName: 'medics',
+  }
+);
 
 export default Medic;

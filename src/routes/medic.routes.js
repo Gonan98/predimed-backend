@@ -1,5 +1,11 @@
-import { Router } from "express";
-import { createMedic, deleteMedic, getAllMedics, getMedicById, updateMedic } from "../controllers/medic.controller";
+import { Router } from 'express';
+import {
+  createMedic,
+  deleteMedic,
+  getAllMedics,
+  getMedicById,
+  updateMedic,
+} from '../controllers/medic.controller';
 
 const router = Router();
 
