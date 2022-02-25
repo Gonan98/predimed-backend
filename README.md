@@ -10,6 +10,7 @@ REST API para el registro de medicos.
 
 ## Variables de Entorno
 
-- PORT
 - DB_USER
 - DB_PASSWORD
+- JWT_SECRET
+- CRYPTO_SECRET
