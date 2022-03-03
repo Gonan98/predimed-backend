@@ -5,11 +5,6 @@ import Location from './location.model';
 const Patient = sequelize.define(
     'patient',
     {
-        medicalRecord: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
         firstName: {
             type: DataTypes.STRING,
             allowNull: false
@@ -18,7 +13,7 @@ const Patient = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
-        dni: {
+        documentNumber: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true

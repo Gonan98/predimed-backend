@@ -1,46 +1,61 @@
+import Location from "../models/location.model";
 import Patient from "../models/patient.model";
 import Referred from "../models/referred.model";
 
 export const addPatient = async (req, res) => {
     const {
-        medicalRecord,
         firstName,
         lastName,
-        dni,
+        documentNumber,
         birthdate,
         address,
         gender,
         diagnostic,
-        anamnesis
+        anamnesis,
+        department,
+        province,
+        district
     } = req.body;
 
-    if (!medicalRecord || !firstName || !lastName || !dni || !birthdate || !address || !gender) {
+    if (!firstName || !lastName || !documentNumber || !birthdate || !address || !gender) {
         return res.status(400).json({ message: 'Some data is missing' });
     }
 
     try {
-
         let patient = await Patient.findOne({
            where: {
-               dni
+               documentNumber
            }
         });
 
         if (!patient) {
+
+            let location = await Location.findOne({
+                where: { district }
+            });
+
+            if (!location) {
+                location = await Location.create({
+                    department,
+                    province,
+                    district
+                });
+            }
+
             patient = await Patient.create({
-                medicalRecord,
                 firstName,
                 lastName,
-                dni,
+                documentNumber,
                 birthdate,
                 address,
+                locationId: location.id,
                 gender
             });
         }
 
         await Referred.create({
-            user_id: req.user.id,
-            patient_id: patient.id,
+            userId: req.user.id,
+            patientId: patient.id,
             diagnostic,
             anamnesis
         });
@@ -55,12 +70,13 @@ export const addPatient = async (req, res) => {
     }
 }
 
-export const getReferred = async (req, res) => {
+export const getPatientsReferred = async (req, res) => {
+
     try {
-        const referred = Referred.findAll({
+        const referred = await Referred.findAll({
             include: Patient,
             where: {
-                user_id: req.user.id
+                userId: req.user.id,
             }
         });
 
@@ -73,16 +89,18 @@ export const getReferred = async (req, res) => {
     }
 }
 
-export const getReferredById = async (req, res) => {
-    try {
-        const refer = Referred.findOne({
-            include: Patient,
-            where: {
-                user_id: req.user.id,
-                patient_id: req.params.patientId
-            }
-        })
-    } catch (error) {
-        res.status(500).json(error);
-    }
-}
+// export const getOnePatientsReferred = async (req, res) => {
+//     try {
+//         const refer = Referred.findOne({
+//             include: Patient,
+//             where: {
+//                 user_id: req.user.id,
+//                 patient_id: req.params.patientId
+//             }
+//         });
+
+//         res.status(200).json(refer);
+//     } catch (error) {
+//         res.status(500).json(error);
+//     }
+// }

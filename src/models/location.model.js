@@ -8,13 +8,14 @@ const Location = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
-        city: {
+        province: {
             type: DataTypes.STRING,
             allowNull: false
         },
         district: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     },
     {
