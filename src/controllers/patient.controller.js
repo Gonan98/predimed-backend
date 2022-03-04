@@ -23,9 +23,9 @@ export const addPatient = async (req, res) => {
 
     try {
         let patient = await Patient.findOne({
-           where: {
-               documentNumber
-           }
+            where: {
+                documentNumber
+            }
         });
 
         if (!patient) {
@@ -88,19 +88,3 @@ export const getPatientsReferred = async (req, res) => {
         });
     }
 }
-
-// export const getOnePatientsReferred = async (req, res) => {
-//     try {
-//         const refer = Referred.findOne({
-//             include: Patient,
-//             where: {
-//                 user_id: req.user.id,
-//                 patient_id: req.params.patientId
-//             }
-//         });
-
-//         res.status(200).json(refer);
-//     } catch (error) {
-//         res.status(500).json(error);
-//     }
-// }
