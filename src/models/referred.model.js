@@ -20,6 +20,7 @@ const Referred = sequelize.define(
     },
     {
         timestamps: false,
+        tableName: 'referreds',
         underscored: true
     }
 );

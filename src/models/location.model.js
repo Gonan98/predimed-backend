@@ -19,7 +19,8 @@ const Location = sequelize.define(
         }
     },
     {
-        timestamps: false
+        timestamps: false,
+        tableName: 'locations'      
     }
 );
 
