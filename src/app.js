@@ -8,7 +8,7 @@ import patientRoutes from './routes/patient.routes';
 import departmentRoutes from './routes/department.routes';
 import provinceRoutes from './routes/province.routes';
 import districtRoutes from './routes/district.routes';
-
+import establishmentRoutes from './routes/establishments.routes';
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.use('/api/v1/patients', patientRoutes);
 app.use('/api/v1/departments', departmentRoutes);
 app.use('/api/v1/provinces', provinceRoutes);
 app.use('/api/v1/districts', districtRoutes);
-
+app.use('/api/v1/establishments', establishmentRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hola!");
