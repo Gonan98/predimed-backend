@@ -2,6 +2,10 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
+// swagger
+const swaggerUI = require("swagger-ui-express")
+const swaggerDocument = require('../swagger.json');
+
 import authRoutes from './routes/auth.routes';
 import userRoutes from "./routes/user.routes";
 import patientRoutes from './routes/patient.routes';
@@ -24,6 +28,11 @@ app.use('/api/v1/departments', departmentRoutes);
 app.use('/api/v1/provinces', provinceRoutes);
 app.use('/api/v1/districts', districtRoutes);
 app.use('/api/v1/establishments', establishmentRoutes);
+
+
+  
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.get("/", (req, res) => {
     res.send("Hola!");

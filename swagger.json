@@ -1,0 +1,745 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "PREDIMED API",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "securityDefinitions": {
+        "Bearer":{
+            "type": "apiKey",
+            "name": "Authorization",
+            "scheme": "bearer",
+            "in": "header"
+        }
+    },
+    "tags": [
+        {"name": "Authentication"},
+        {"name": "Users"},
+        {"name": "Patients"},
+        {"name": "Departments"},
+        {"name": "Provinces"},
+        {"name": "Districts"},
+        {"name": "Establishments"}
+    ],
+    "host": "https://predimed-node.herokuapp.com",
+    "basePath": "/api/v1",
+    "paths" : {
+        "/auth/login" : {
+            "post" : {
+                "tags": ["Authentication"],
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "authRequest",
+                        "in": "body",
+                        "schema": 
+                        {
+                            "$ref":"#/definitions/loginReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/loginRes"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/register" : {
+            "post" : {
+                "tags": ["Authentication"],
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                      "in":"body",
+                      "schema":{
+                          "$ref":"#/definitions/registerReq"
+                      }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/registerRes"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/users" : {
+            "post" : {
+                "tags": ["Users"],
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "parameters": [
+                    {
+                        "in":"body",
+                        "schema": {
+                            "$ref": "#/definitions/userReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/userRes"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Users"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/userRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+        "/user/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "type": "integer"
+              }
+            ],
+            "delete": {
+              "tags": [
+                "Users"
+              ],
+              "security": [{ "Bearer": [] }],
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/defaultResponse"
+                  }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+              }
+            },
+            "get": {
+                "tags": [
+                  "Users"
+                ],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                      "$ref": "#/definitions/userRes"
+                    }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+                }
+              },
+            "put": {
+              "tags": [
+                "Users"
+              ],
+              "security": [{ "Bearer": [] }],
+              "parameters": [
+                {
+                  "name": "user",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/userReq"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/User"
+                  }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+              }
+            }
+        },
+
+        "/patients" : {
+            "post" : {
+                "tags": ["Patients"],
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "parameters": [
+                    {
+                        "in":"body",
+                        "schema": {
+                            "$ref": "#/definitions/patientReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/defaultResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Patients"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/patientRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+
+        "/departments": {
+            "get": {
+                "tags": ["Departments"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/departmentRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+
+        "/provines": {
+            "get": {
+                "tags": ["Provinces"],
+                "security": [{ "Bearer": [] }],
+                "produces": ["application/json"],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/provinceRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+
+        "/districts": {
+            "get": {
+                "security": [{ "Bearer": [] }],
+                "tags": ["Districts"],
+                "produces": ["application/json"],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/districtRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+
+        "/establishments" : {
+            "parameters": [
+                {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "type": "integer"
+                },
+                {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "type": "integer"
+                }
+            ],
+            "get": {
+                "security": [{ "Bearer": [] }],
+                "tags": ["Establishments"],
+                "produces": ["application/json"],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/establishmentsRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+        "/establishments/{code}/destiny-services": {
+            "parameters": [
+              {
+                "name": "code",
+                "in": "path",
+                "required": true,
+                "type": "string"
+              },
+              {
+                "name": "limit",
+                "in": "query",
+                "required": false,
+                "type": "integer"
+              },
+              {
+                "name": "pagination",
+                "in": "query",
+                "required": false,
+                "type": "integer"
+              }
+            ],
+            "get": {
+                "tags": [
+                  "Establishments"
+                ],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/establishmentDestinyServiceRes"
+                        }
+                    }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+                }
+              }
+          },
+        "/establishments/{code}/services": {
+        "parameters": [
+            {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "type": "string"
+            },
+            {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+            },
+            {
+            "name": "pagination",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+            }
+        ],
+        "get": {
+            "tags": [
+                "Establishments"
+            ],
+            "security": [{ "Bearer": [] }],
+            "responses": {
+                "200": {
+                "description": "successful operation",
+                "schema": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/establishmentServicesRes"
+                    }
+                }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+            }
+        },
+        "/establishments/{code}/specialties": {
+        "parameters": [
+            {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "type": "string"
+            },
+            {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+            },
+            {
+            "name": "pagination",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+            }
+        ],
+        "get": {
+            "tags": [
+                "Establishments"
+            ],
+            "security": [{ "Bearer": [] }],
+            "responses": {
+                "200": {
+                "description": "successful operation",
+                "schema": {
+                    "$ref": "#/definitions/establishmentSpecialtiesRes"
+                }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+            }
+            }
+        }
+    }, 
+    "definitions": {
+        "REQUEST": "----------------------",
+        "loginReq": {
+            "type": "object",
+            "properties": {
+                "username": {"type":"string"},
+                "password": {"type":"string"}
+            }
+        },
+        "registerReq": {
+            "type": "object",
+            "properties": {
+                "firstName": {"type":"string"},
+                "lastName": {"type":"string"},
+                "contactCenter": {"type":"string"},
+                "username": {"type":"string"},
+                "password":{"type":"string"},
+                "isAdmin":{"type":"boolean"}
+            }
+        },
+        "userReq": {
+            "type": "object",
+            "properties": {
+                "firstName": {"type":"string"},
+                "lastName": {"type":"string"},
+                "contactCenter": {"type":"string"}
+            }
+        },
+        "patientReq": {
+            "type": "object",
+            "properties": {
+                "firstName": {"type":"string"},
+                "lastName": {"type":"string"},
+                "documentNumber": {"type":"string"},
+                "birthDate": {"type":"date"},
+                "address": {"type":"string"},
+                "gender": {"type":"string"},
+                "diagnostic": {"type":"string"},
+                "anamnesis": {"type":"string"},
+                "department": {"type":"string"},
+                "province": {"type":"string"},
+                "district": {"type":"string"}
+            }
+        },
+        
+        "RESPONSE": "----------------------",
+        "loginRes": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "registerRes": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "userRes": {
+            "type": "object",
+            "properties": {
+                "firstName": {"type":"string"},
+                "lastName": {"type":"string"},
+                "contactCenter": {"type":"string"},
+                "username": {"type":"string"}
+            }
+        },
+        "patientRes": {
+            "type": "object",
+            "properties": {
+                "firstName": {"type":"string"},
+                "lastName": {"type":"string"},
+                "documentNumber": {"type":"string"},
+                "birthDate": {"type":"date"},
+                "address": {"type":"string"},
+                "gender": {"type":"string"},
+                "diagnostic": {"type":"string"},
+                "anamnesis": {"type":"string"},
+                "department": {"type":"string"},
+                "province": {"type":"string"},
+                "district": {"type":"string"}
+            }
+        },
+        "departmentRes": {
+            "type": "object",
+            "properties": {
+                "id": {"type":"string"},
+                "name": {"type":"string"}
+            }
+        },
+        "provinceRes": {
+            "type": "object",
+            "properties": {
+                "id": {"type":"string"},
+                "name": {"type":"string"},
+                "departmentId": {"type":"string"}
+            }
+        },
+        "districtRes": {
+            "type": "object",
+            "properties": {
+                "id": {"type":"string"},
+                "name": {"type":"string"},
+                "provinceId": {"type":"string"}
+            }
+        },
+        "establishmentsRes":{
+            "type":"object",
+            "properties": {
+                "code": {"type":"integer"},
+                "name": {"type":"string"},
+                "ubigeo": {"type":"string"}
+            }
+        },
+        "establishmentDestinyServiceRes":{
+            "type":"object",
+            "properties": {
+                "id": {"type":"integer"},
+                "name": {"type":"string"},
+                "establishmentCode": {"type":"integer"},
+                "code": {"type":"string"},
+                "status": {"type":"string"}
+            }
+        },
+        "establishmentServicesRes":{
+            "type":"object",
+            "properties": {
+                "id": {"type":"integer"},
+                "name": {"type":"string"},
+                "establishmentCode": {"type":"integer"},
+                "code": {"type":"string"}
+            }
+        },
+        "establishmentSpecialtiesRes":{
+           "properties": {
+            "next": {"type":"string"},
+            "limit": {"type": "integer"},
+            "pagination": {"type":"integer"},
+            "data": {
+                "type":"array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {"type":"integer"},
+                        "name": {"type":"string"},
+                        "establishmentCode": {"type":"integer"},
+                        "code": {"type":"string"}
+                    }
+                }
+            }
+           }
+        },
+
+
+        "todosResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "task": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Task": {
+            "type": "object",
+            "properties": {
+                "task": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        },
+        "defaultResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        }
+    }
+}
