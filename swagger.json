@@ -9,7 +9,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "schemes": ["http"],
+    "schemes": ["https"],
     "securityDefinitions": {
         "Bearer":{
             "type": "apiKey",
@@ -27,7 +27,7 @@
         {"name": "Districts"},
         {"name": "Establishments"}
     ],
-    "host": "https://predimed-node.herokuapp.com",
+    "host": "predimed-node.herokuapp.com",
     "basePath": "/api/v1",
     "paths" : {
         "/auth/login" : {
