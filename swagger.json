@@ -25,7 +25,9 @@
         {"name": "Departments"},
         {"name": "Provinces"},
         {"name": "Districts"},
-        {"name": "Establishments"}
+        {"name": "Establishments"},
+        {"name": "Diagnostics"},
+        {"name": "Symptoms"}
     ],
     "host": "predimed-node.herokuapp.com",
     "basePath": "/api/v1",
@@ -109,10 +111,7 @@
                     "200": {
                         "description": "successful operation",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/userRes"
-                            }
+                            "$ref": "#/definitions/defaultResponse"
                         }
                     },
                     "400": {
@@ -213,7 +212,273 @@
                 "200": {
                   "description": "successful operation",
                   "schema": {
-                    "$ref": "#/definitions/User"
+                    "$ref": "#/definitions/userRes"
+                  }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+              }
+            }
+        },
+
+        "/diagnostics" : {
+            "post" : {
+                "tags": ["Diagnostics"],
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "parameters": [
+                    {
+                        "name": "addDiagnostic",
+                        "in":"body",
+                        "schema": {
+                            "$ref": "#/definitions/diagnosticReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/defaultResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Diagnostics"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/diagnosticRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+        "/diagnostics/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "type": "integer"
+              }
+            ],
+            "delete": {
+              "tags": [
+                "Diagnostics"
+              ],
+              "security": [{ "Bearer": [] }],
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/defaultResponse"
+                  }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+              }
+            },
+            "get": {
+                "tags": [
+                  "Diagnostics"
+                ],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                      "$ref": "#/definitions/diagnosticRes"
+                    }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+                }
+              },
+            "put": {
+              "tags": [
+                "Diagnostics"
+              ],
+              "security": [{ "Bearer": [] }],
+              "parameters": [
+                {
+                  "name": "updateDiagnostic",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/diagnosticReq"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/defaultResponse"
+                  }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+              }
+            }
+        },
+
+        "/symptoms" : {
+            "post" : {
+                "tags": ["Symptoms"],
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "parameters": [
+                    {
+                        "name": "addSymptom",
+                        "in":"body",
+                        "schema": {
+                            "$ref": "#/definitions/symptomReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/defaultResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Symptoms"],
+                "produces": ["application/json"],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/symptomRes"
+                        }
+                    }
+                  },
+                  "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+                }
+              }
+        },
+        "/symptoms/{id}": {
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "type": "integer"
+              }
+            ],
+            "delete": {
+              "tags": [
+                "Symptoms"
+              ],
+              "security": [{ "Bearer": [] }],
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/defaultResponse"
+                  }
+                },
+                "400": {
+                    "description": "Invalid status value",
+                    "schema": {
+                        "$ref": "#/definitions/InvalidResponse"
+                    }
+                }
+              }
+            },
+            "get": {
+                "tags": [
+                  "Symptoms"
+                ],
+                "security": [{ "Bearer": [] }],
+                "responses": {
+                  "200": {
+                    "description": "successful operation",
+                    "schema": {
+                      "$ref": "#/definitions/symptomRes"
+                    }
+                  },
+                  "400": {
+                      "description": "Invalid status value",
+                      "schema": {
+                          "$ref": "#/definitions/InvalidResponse"
+                      }
+                  }
+                }
+              },
+            "put": {
+              "tags": [
+                "Symptoms"
+              ],
+              "security": [{ "Bearer": [] }],
+              "parameters": [
+                {
+                  "name": "updateSymptom",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/symptomReq"
+                  }
+                }
+              ],
+              "responses": {
+                "200": {
+                  "description": "successful operation",
+                  "schema": {
+                    "$ref": "#/definitions/defaultResponse"
                   }
                 },
                 "400": {
@@ -556,6 +821,18 @@
                 "contactCenter": {"type":"string"}
             }
         },
+        "diagnosticReq": {
+            "type": "object",
+            "properties": {
+                "name": {"type":"string"}
+            }
+        },
+        "symptomReq": {
+            "type": "object",
+            "properties": {
+                "name": {"type":"string"}
+            }
+        },
         "patientReq": {
             "type": "object",
             "properties": {
@@ -613,6 +890,20 @@
                 "department": {"type":"string"},
                 "province": {"type":"string"},
                 "district": {"type":"string"}
+            }
+        },
+        "diagnosticRes": {
+            "type": "object",
+            "properties": {
+                "id": {"type":"integer"},
+                "name": {"type":"string"}
+            }
+        },
+        "symptomRes": {
+            "type": "object",
+            "properties": {
+                "id": {"type":"integer"},
+                "name": {"type":"string"}
             }
         },
         "departmentRes": {
