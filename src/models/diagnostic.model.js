@@ -1,5 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
+import Disease from './disease.model'
+import Symptom from './symptom.model'
 
 const Diagnostic = sequelize.define(
     'diagnostic',
@@ -10,10 +12,6 @@ const Diagnostic = sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
-            type: DataTypes.STRING(45),
-            allowNull: false
-        },
     },
     {
         tableName: 'diagnostics',
@@ -22,5 +20,10 @@ const Diagnostic = sequelize.define(
         updatedAt: false
     }
 );
+
+Disease.hasMany(Diagnostic);
+Diagnostic.belongsTo(Disease, { foreignKey: 'diseaseId', allowNull: false });
+Symptom.hasMany(Diagnostic);
+Diagnostic.belongsTo(Symptom, { foreignKey: 'symptomId', allowNull: false });
 
 export default Diagnostic;

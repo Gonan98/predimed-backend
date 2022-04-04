@@ -15,6 +15,7 @@ import districtRoutes from './routes/district.routes';
 import establishmentRoutes from './routes/establishments.routes';
 import diagnosticRoutes from './routes/diagnostic.routes';
 import symptomRoutes from './routes/symptom.routes';
+import diseaseRoutes from './routes/disease.routes'
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/diseases', diseaseRoutes);
 app.use('/api/v1/patients', patientRoutes);
 app.use('/api/v1/departments', departmentRoutes);
 app.use('/api/v1/provinces', provinceRoutes);
