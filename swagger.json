@@ -9,7 +9,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "schemes": ["http"],
+    "schemes": ["https"],
     "securityDefinitions": {
         "Bearer":{
             "type": "apiKey",
@@ -30,7 +30,7 @@
         {"name": "Symptoms"},
         {"name": "Diseases"}
     ],
-    "host": "localhost:5001",
+    "host": "predimed-node.herokuapp.com",
     "basePath": "/api/v1",
     "paths" : {
         "/auth/login" : {
