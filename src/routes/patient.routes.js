@@ -1,11 +1,13 @@
 import { Router } from "express";
-import { addPatient, getPatientsReferred } from "../controllers/patient.controller";
+import { add, getAll, updateById, deleteById, getById } from "../controllers/patient.controller";
 import { verifyToken } from "../middlewares/authentication";
 
 const router = Router();
 
-router.post('/', verifyToken, addPatient);
-router.get('/', verifyToken, getPatientsReferred);
-//router.get('/:patientId', verifyToken, getReferred);
+router.post('/', verifyToken, add);
+router.get('/', verifyToken, getAll);
+router.get('/:id', verifyToken, getById);
+router.put('/:id', verifyToken, updateById);
+router.delete('/:id', verifyToken, deleteById);
 
 export default router;

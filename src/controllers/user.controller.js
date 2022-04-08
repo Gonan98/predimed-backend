@@ -2,20 +2,14 @@ import generator from 'generate-password';
 import Cryptojs from 'crypto-js';
 import User from '../models/user.model';
 
-export const createUser = async (req, res) => {
-    const { firstName, lastName, contactCenter } = req.body;
-
-    if (!firstName || !lastName || !contactCenter)
-        return res.status(400).json({ message: 'Some data is missing' });
+export const add = async (req, res) => {
+    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition } = req.body;
 
     try {
 
-        const username = 'med' + firstName.slice(0,1).toLowerCase() + lastName.slice(0,3).toLowerCase();
-
-        const password = generator.generate({
-            length: 10,
-            numbers: true
-        });
+        let usernameDoc = username
+        if (!isAdmin)
+            usernameDoc = 'med' + firstName.slice(0, 1).toLowerCase() + lastName.slice(0, 3).toLowerCase();
 
         const hashedPassword = Cryptojs.AES.encrypt(
             password,
@@ -26,7 +20,12 @@ export const createUser = async (req, res) => {
             firstName,
             lastName,
             contactCenter,
-            username,
+            gender: gender ?? '',
+            profession: profession ?? '',
+            establishment: establishment ?? null,
+            employeeStatus: employeeStatus ?? '',
+            workingCondition: workingCondition ?? '',
+            username: usernameDoc,
             password: hashedPassword
         });
 
@@ -41,7 +40,7 @@ export const createUser = async (req, res) => {
     }
 };
 
-export const getUserCredentials = async (req, res) => {
+export const getCredentials = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id, {
             attributes: ['username', 'password']
@@ -67,14 +66,18 @@ export const getUserCredentials = async (req, res) => {
     }
 }
 
-export const getUsers = async (req, res) => {
+export const getAll = async (req, res) => {
+    const { isAdmin } = req.query
     try {
-        const users = await User.findAll({
-            attributes: {
-                exclude: ['password', 'isAdmin']
-            },
-            where: { isAdmin: false }
-        });
+        let users = []
+        if (!isAdmin) {
+            users = await User.findAll({
+                attributes: { exclude: ['password', 'isAdmin'] },
+                where: { isAdmin: isAdmin }
+            });
+        } else {
+            users = await User.findAll({ attributes: { exclude: ['password', 'isAdmin'] } });
+        }
         res.status(200).json(users);
     } catch (error) {
         res.status(500).json({
@@ -83,7 +86,7 @@ export const getUsers = async (req, res) => {
     }
 };
 
-export const getUserById = async (req, res) => {
+export const getById = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id, {
             attributes: {

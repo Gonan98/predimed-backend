@@ -1,15 +1,30 @@
 import Diagnostic from '../models/diagnostic.model';
 import Disease from '../models/disease.model';
+import PatientHistory from '../models/patientHistory.model'
 import sequelize from '../db'
 
 export const create = async (req, res) => {
 
-    try {
+    const { diseases, patientId, condition, resume } = req.body
 
+    try {
+        const countHistory = await PatientHistory.count({})
+        const number = countHistory.toString().padStart(8, '0')
+        const addHistory = await PatientHistory.create({ number, condition, patientId, resume })
+        const id = addHistory.id
+        console.log('addhistory => ', addHistory)
+        let queryHistoryDetail = 'INSERT INTO patient_history_disease (`patientHistoryId`, `diseaseId`,`percent`) values '
+        diseases.forEach((value, index) => {
+            queryHistoryDetail += `(${id}, ${value.diseaseId}, ${value.percent})`
+            queryHistoryDetail += diseases.length === index + 1 ? ';' : ', '
+        })
+        console.log('query => ', queryHistoryDetail)
+        await sequelize.query(queryHistoryDetail)
         res.status(201).json({
-            message: 'Diagnostic created successfully',
+            message: 'History Diagnostic created successfully',
         });
     } catch (error) {
+        console.log('error => ', error)
         res.status(500).json({
             message: 'Database error',
         });
@@ -22,12 +37,12 @@ export const consult = async (req, res) => {
     try {
 
         const getAllDiseas = await Disease.findAll({})
-        const diseases = getAllDiseas.map((value) => value.dataValues.name)
-        const queryAll = await sequelize.query('SELECT diag.id as `id`, dise.name as `disease`, sym.name as `symptom` FROM diagnostics as diag inner join diseases as dise on dise.id = diag.diseaseId inner join symptoms as sym on sym.id = diag.symptomId order by diag.diseaseId;')
+        const diseases = getAllDiseas.map((value) => ({ id: value.dataValues.id, name: value.dataValues.name }))
+        const queryAll = await sequelize.query('SELECT sym.id as `id`,sym.name as `symptom`,dise.name as `disease` FROM diagnostics as diag inner join diseases as dise on dise.id = diag.diseaseId inner join symptoms as sym on sym.id = diag.symptomId order by diag.diseaseId;')
         const diseasesDeta = []
         diseases.forEach((disease) => {
-            const allSymptoms = queryAll[0].filter(diagnostic => (diagnostic.disease === disease))
-            diseasesDeta.push({ disease, symptoms: allSymptoms })
+            const allSymptoms = queryAll[0].filter(diagnostic => (diagnostic.disease === disease.name))
+            diseasesDeta.push({ disease: { id: disease.id, name: disease.name }, symptoms: allSymptoms.map(value => ({ name: value.symptom, id: value.id })) })
         })
 
         let result = []
@@ -39,7 +54,7 @@ export const consult = async (req, res) => {
         })
 
         const percent = 100 / result.length
-        result = result.map(value => ({ ...value, percent: `${percent} %` }))
+        result = result.map(value => ({ ...value, percent: percent }))
         res.status(201).json(result);
     } catch (error) {
         console.log('error => ', error)
@@ -51,7 +66,8 @@ export const consult = async (req, res) => {
 
 export const getById = async (req, res) => {
     try {
-        const diagnostic = await Diagnostic.findByPk(req.params.id);
+        const diagnostic = await PatientHistory.findByPk(req.params.id);
+        const diagnosticDetail = await sequelize.query('select * from patient_history_disease ')
 
         if (!diagnostic) return res.status(404).json({
             message: 'Diagnostic not found'

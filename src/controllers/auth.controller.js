@@ -4,7 +4,7 @@ import User from '../models/user.model';
 
 export const signUp = async (req, res) => {
     const { firstName, lastName, contactCenter, username, password, isAdmin } = req.body;
-    
+
     if (!firstName || !lastName || !contactCenter || !username || !password)
         return res.status(400).json({
             message: 'Some data is missing'
@@ -62,6 +62,13 @@ export const signIn = async (req, res) => {
         const token = jwt.sign({ id: userDB.id, isAdmin: userDB.isAdmin }, process.env.JWT_SECRET, { expiresIn: 86400 });
 
         res.status(200).json({
+            user: {
+                firstName: userDB.firstName,
+                lastName: userDB.lastName,
+                contactCenter: userDB.contactCenter,
+                username: userDB.username,
+                isAmin: userDB.isAdmin
+            },
             token
         });
 

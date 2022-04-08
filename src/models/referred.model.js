@@ -6,17 +6,40 @@ import User from './user.model';
 const Referred = sequelize.define(
     'referred',
     {
+        id: {
+            type: DataTypes.INTEGER(11),
+            primaryKey: true,
+            autoIncrement: true
+        },
         referredDate: {
             type: DataTypes.DATE,
-            defaultValue: Sequelize.NOW
+            defaultValue: Sequelize.NOW,
+            allowNull: false
         },
-        diagnostic: {
+        establishment: {
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        establishmentDestinyService: {
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        establishmentSpecialties: {
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        motive: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        anamnesis: {
-            type: DataTypes.STRING
-        }
+        resumeAnamnesis: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        resumenPhysicalExam: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
     },
     {
         timestamps: false,
