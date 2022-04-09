@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import { add, deleteById, getAll, getById, getCredentials, updateById } from '../controllers/user.controller';
-import { verifyTokenAndAdmin } from '../middlewares/authentication';
+import { verifyToken } from '../middlewares/authentication';
 
 const router = Router();
 
-router.post('/', verifyTokenAndAdmin, add);
-router.get('/', verifyTokenAndAdmin, getAll);
-router.get('/:id', verifyTokenAndAdmin, getById);
-router.get('/:id/credentials', verifyTokenAndAdmin, getCredentials);
-router.put('/:id', verifyTokenAndAdmin, updateById);
-router.delete('/:id', verifyTokenAndAdmin, deleteById);
+router.post('/', verifyToken, add);
+router.get('/', verifyToken, getAll);
+router.get('/:id', verifyToken, getById);
+router.get('/:id/credentials', verifyToken, getCredentials);
+router.put('/:id', verifyToken, updateById);
+router.delete('/:id', verifyToken, deleteById);
 
 export default router;

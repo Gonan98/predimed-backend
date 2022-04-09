@@ -48,6 +48,16 @@ const User = sequelize.define(
             type: DataTypes.STRING,
             allowNull: true
         },
+        documentNumber: {
+            field: 'document_number',
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        documentMedic: {
+            field: 'document_medic',
+            type: DataTypes.STRING,
+            allowNull: true
+        },
     },
     {
         tableName: 'users',

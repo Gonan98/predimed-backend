@@ -1165,7 +1165,9 @@
                 "profession": {"type":"string"},
                 "establishment": {"type":"integer"},
                 "employeeStatus": {"type":"string"},
-                "workingCondition": {"type":"string"}
+                "workingCondition": {"type":"string"},
+                "documentNumber": {"type":"string"},
+                "documentMedic": {"type":"string"}
             }
         },
         "diagnosticReq": {
@@ -1222,6 +1224,8 @@
                 "establishment": {"type":"integer"},
                 "employeeStatus": {"type":"string"},
                 "workingCondition": {"type":"string"},
+                "documentNumber": {"type":"string"},
+                "documentMedic": {"type":"string"},
                 "created_at": {"type":"string"},
                 "updated_at": {"type":"string"}
             }

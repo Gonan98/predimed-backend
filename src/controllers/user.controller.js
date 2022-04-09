@@ -3,7 +3,7 @@ import Cryptojs from 'crypto-js';
 import User from '../models/user.model';
 
 export const add = async (req, res) => {
-    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition } = req.body;
+    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition,  documentNumber, documentMedic } = req.body;
 
     try {
 
@@ -33,7 +33,9 @@ export const add = async (req, res) => {
             employeeStatus: employeeStatus ?? '',
             workingCondition: workingCondition ?? '',
             username: usernameDoc,
-            password: hashedPassword
+            password: hashedPassword,
+            documentNumber,
+            documentMedic
         });
 
         res.status(201).json({
@@ -113,7 +115,7 @@ export const getById = async (req, res) => {
 
 export const updateById = async (req, res) => {
     const { id } = req.params;
-    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition } = req.body;
+    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition, documentNumber, documentMedic } = req.body;
     console.log('body => ', req.body)
     try {
         if (isAdmin === true) {
@@ -142,7 +144,9 @@ export const updateById = async (req, res) => {
                     profession,
                     "establishment_id": establishment,
                     employeeStatus,
-                    workingCondition
+                    workingCondition,
+                    documentNumber,
+                    documentMedic
                 },
                 {
                     where: {
