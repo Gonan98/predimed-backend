@@ -9,7 +9,7 @@
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "schemes": ["http"],
+    "schemes": ["https"],
     "securityDefinitions": {
         "Bearer":{
             "type": "apiKey",
@@ -30,7 +30,7 @@
         {"name": "Symptoms"},
         {"name": "Diseases"}
     ],
-    "host": "localhost:5001",
+    "host": "predimed-node.herokuapp.com",
     "basePath": "/api/v1",
     "paths" : {
         "/auth/login" : {
@@ -97,11 +97,13 @@
         "/users" : {
             "post" : {
                 "tags": ["Users"],
+                "description": "ADMIN -> REQUIRED VALUES (username, password, firstName, lastName, isAdmin = true) \n DOCTOR -> REQUIRED VALUES (firstName, lastName, contactCenter, password, isAdmin = false, gender, profession, establishment, employeeStatus, workingCondition)",
                 "consumes": ["application/json"],
                 "produces": ["application/json"],
                 "security": [{ "Bearer": [] }],
                 "parameters": [
                     {
+                        "name": "adduser",
                         "in":"body",
                         "schema": {
                             "$ref": "#/definitions/userReq"
@@ -125,6 +127,15 @@
             },
             "get": {
                 "tags": ["Users"],
+                "description": "IsAdmin = true (administratos) \n IsAdmin = false (doctors)",
+                "parameters": [
+                  {
+                  "name": "isAdmin",
+                  "in": "query",
+                  "required": true,
+                  "type": "boolean"
+                  }
+              ],
                 "produces": ["application/json"],
                 "security": [{ "Bearer": [] }],
                 "responses": {
@@ -146,7 +157,7 @@
                 }
               }
         },
-        "/user/{id}": {
+        "/users/{id}": {
             "parameters": [
               {
                 "name": "id",
@@ -199,10 +210,11 @@
               "tags": [
                 "Users"
               ],
+              "description": "ADMIN -> REQUIRED VALUES (username, firstName, lastName, isAdmin = true) \n DOCTOR -> REQUIRED VALUES (firstName, lastName, contactCenter, isAdmin = false, gender, profession, establishment, employeeStatus, workingCondition)",
               "security": [{ "Bearer": [] }],
               "parameters": [
                 {
-                  "name": "user",
+                  "name": "updateUser",
                   "in": "body",
                   "schema": {
                     "$ref": "#/definitions/userReq"
@@ -1145,7 +1157,15 @@
             "properties": {
                 "firstName": {"type":"string"},
                 "lastName": {"type":"string"},
-                "contactCenter": {"type":"string"}
+                "contactCenter": {"type":"string"},
+                "username": {"type":"string"},
+                "password": {"type":"string"},
+                "isAdmin": {"type":"string"},
+                "gender": {"type":"string"},
+                "profession": {"type":"string"},
+                "establishment": {"type":"integer"},
+                "employeeStatus": {"type":"string"},
+                "workingCondition": {"type":"string"}
             }
         },
         "diagnosticReq": {
@@ -1196,7 +1216,14 @@
                 "firstName": {"type":"string"},
                 "lastName": {"type":"string"},
                 "contactCenter": {"type":"string"},
-                "username": {"type":"string"}
+                "username": {"type":"string"},
+                "gender": {"type":"string"},
+                "profession": {"type":"string"},
+                "establishment": {"type":"integer"},
+                "employeeStatus": {"type":"string"},
+                "workingCondition": {"type":"string"},
+                "created_at": {"type":"string"},
+                "updated_at": {"type":"string"}
             }
         },
         "patientRes": {

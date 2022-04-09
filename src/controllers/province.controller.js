@@ -30,7 +30,7 @@ export const getProvinces = async (req, res) => {
         res.status(200).json({ next: nextPage, limit, pagination, data: provinces });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

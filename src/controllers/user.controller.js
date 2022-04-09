@@ -7,6 +7,13 @@ export const add = async (req, res) => {
 
     try {
 
+        if (isAdmin === true) {
+            const existUserName = await User.count({ where: { username: username } })
+            if (existUserName > 0) {
+                throw "USERNAME EXISTED"
+            }
+        }
+
         let usernameDoc = username
         if (!isAdmin)
             usernameDoc = 'med' + firstName.slice(0, 1).toLowerCase() + lastName.slice(0, 3).toLowerCase();
@@ -22,7 +29,7 @@ export const add = async (req, res) => {
             contactCenter,
             gender: gender ?? '',
             profession: profession ?? '',
-            establishment: establishment ?? null,
+            "establishment_id": establishment ?? null,
             employeeStatus: employeeStatus ?? '',
             workingCondition: workingCondition ?? '',
             username: usernameDoc,
@@ -35,7 +42,7 @@ export const add = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -61,7 +68,7 @@ export const getCredentials = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
@@ -81,7 +88,7 @@ export const getAll = async (req, res) => {
         res.status(200).json(users);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -99,39 +106,63 @@ export const getById = async (req, res) => {
         res.status(200).json(user);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
-export const updateUser = async (req, res) => {
+export const updateById = async (req, res) => {
     const { id } = req.params;
-    const { firstName, lastName, contactCenter } = req.body;
-
+    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition } = req.body;
+    console.log('body => ', req.body)
     try {
-        await User.update(
-            {
-                firstName,
-                lastName,
-                contactCenter,
-            },
-            {
-                where: {
-                    id,
+        if (isAdmin === true) {
+            await User.update(
+                {
+                    firstName,
+                    lastName,
+                    contactCenter,
+                    username
                 },
-            }
-        );
+                {
+                    where: {
+                        id,
+                    },
+                }
+            );
+        } else {
+            const usernameDoc = 'med' + firstName.slice(0, 1).toLowerCase() + lastName.slice(0, 3).toLowerCase();
+            await User.update(
+                {
+                    firstName,
+                    lastName,
+                    contactCenter,
+                    gender,
+                    username: usernameDoc,
+                    profession,
+                    "establishment_id": establishment,
+                    employeeStatus,
+                    workingCondition
+                },
+                {
+                    where: {
+                        id,
+                    },
+                }
+            );
+        }
+
         res.status(200).json({
             message: 'User updated successfully',
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
-export const deleteUser = async (req, res) => {
+export const deleteById = async (req, res) => {
     try {
         await User.destroy({
             where: {
@@ -143,7 +174,7 @@ export const deleteUser = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

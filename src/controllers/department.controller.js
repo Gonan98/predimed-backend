@@ -17,7 +17,7 @@ export const getDepartments = async (req, res) => {
     } catch (error) {
         console.log('error => ', error)
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

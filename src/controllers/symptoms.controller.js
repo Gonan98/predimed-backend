@@ -10,7 +10,7 @@ export const create = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -27,7 +27,7 @@ export const getById = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
@@ -38,7 +38,7 @@ export const getAll = async (req, res) => {
         res.status(200).json(symptoms);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -63,7 +63,7 @@ export const updateById = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -80,7 +80,7 @@ export const deleteById = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

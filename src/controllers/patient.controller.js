@@ -56,7 +56,7 @@ export const getAll = async (req, res) => {
     } catch (error) {
         console.log('error => ', error)
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
@@ -69,7 +69,7 @@ export const getById = async (req, res) => {
         res.status(200).json(patient);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
@@ -84,7 +84,7 @@ export const deleteById = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
@@ -125,7 +125,7 @@ export const updateById = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }

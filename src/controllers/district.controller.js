@@ -30,7 +30,7 @@ export const getDistricts = async (req, res) => {
         res.status(200).json({ next: nextPage, limit, pagination, data: districts });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

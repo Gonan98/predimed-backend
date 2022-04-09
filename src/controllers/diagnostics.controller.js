@@ -26,7 +26,7 @@ export const create = async (req, res) => {
     } catch (error) {
         console.log('error => ', error)
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -59,25 +59,41 @@ export const consult = async (req, res) => {
     } catch (error) {
         console.log('error => ', error)
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
 export const getById = async (req, res) => {
+    const { id } = req.params
     try {
-        const diagnostic = await PatientHistory.findByPk(req.params.id);
-        const diagnosticDetail = await sequelize.query('select * from patient_history_disease ')
-
+        const diagnostic = await PatientHistory.findByPk(id);
         if (!diagnostic) return res.status(404).json({
             message: 'Diagnostic not found'
         });
 
-        res.status(200).json(diagnostic);
+        const query = `SELECT hd.diseaseId as 'diseaseId', d.name as 'disease', s.id as 'symptomId', s.name as 'symptom', hd.percent as 'percent' FROM patient_history_disease hd inner join heroku_660b17d3437b56e.diseases d on d.id = hd.diseaseId inner join diagnostics di on di.diseaseId = hd.diseaseId inner join symptoms s on s.id = di.symptomId where hd.patientHistoryId = ${id}`
+        const diagnosticDetail = await sequelize.query(query)
+        const diseaseId = diagnosticDetail[0].map((value) => value.diseaseId)
+        const UniqueDiseaseId = [...new Set(diseaseId)]
+        const diseases = []
+        UniqueDiseaseId.forEach((value) => {
+            let detail = {}
+            const symptoms = diagnosticDetail[0].map((item, index) => {
+                if (item.diseaseId === value) {
+                    detail = { diseaseId: value, name: item.disease, percent: item.percent }
+                    return ({ symptomId: item.symptomId, name: item.symptom })
+                }
+            })
+            detail.symptoms = symptoms
+            diseases.push(detail)
+        })
 
+        const result = {...diagnostic.dataValues, diseases}
+        res.status(200).json(result);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
@@ -88,7 +104,7 @@ export const getAll = async (req, res) => {
         res.status(200).json(diagnostics);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -103,7 +119,7 @@ export const updateById = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
@@ -120,7 +136,7 @@ export const deleteById = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
