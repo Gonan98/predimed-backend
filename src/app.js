@@ -16,6 +16,7 @@ import establishmentRoutes from './routes/establishments.routes';
 import diagnosticRoutes from './routes/diagnostic.routes';
 import symptomRoutes from './routes/symptom.routes';
 import diseaseRoutes from './routes/disease.routes'
+import incidencesRoutes from './routes/incidence.routes'
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use('/api/v1/districts', districtRoutes);
 app.use('/api/v1/establishments', establishmentRoutes);
 app.use('/api/v1/diagnostics', diagnosticRoutes);
 app.use('/api/v1/symptoms', symptomRoutes);
+app.use('/api/v1/incidences', incidencesRoutes);
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
