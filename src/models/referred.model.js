@@ -1,7 +1,5 @@
 import { DataTypes, Sequelize } from 'sequelize';
 import sequelize from '../db';
-import Patient from './patient.model';
-import User from './user.model';
 
 const Referred = sequelize.define(
     'referred',
@@ -11,33 +9,82 @@ const Referred = sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        referredDate: {
+        date: {
             type: DataTypes.DATE,
             defaultValue: Sequelize.NOW,
             allowNull: false
         },
-        establishment: {
+        establishmentOriginId: {
+            field: 'establishment_origin_id',
             type: DataTypes.INTEGER(11),
             allowNull: false
         },
-        establishmentDestinyService: {
+        establishmentDestinyId: {
+            field: 'establishment_destiny_id',
             type: DataTypes.INTEGER(11),
             allowNull: false
         },
-        establishmentSpecialties: {
+        establishmentDestinyServiceId: {
+            field: 'establishment_destiny_service_id',
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        establishmentSpecialtiesId: {
+            field: 'establishment_specialties_id',
             type: DataTypes.INTEGER(11),
             allowNull: false
         },
         motive: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        number: {
+            type: DataTypes.STRING(),
             allowNull: false
         },
         resumeAnamnesis: {
-            type: DataTypes.STRING,
+            field: 'resume_anamnesis',
+            type: DataTypes.STRING(),
             allowNull: false
         },
         resumenPhysicalExam: {
-            type: DataTypes.STRING,
+            field: 'resumen_physical_exam',
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        temperature: {
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        pa: {
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        fc: {
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        fr: {
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        condition: {
+            type: DataTypes.STRING(),
+            allowNull: false
+        },
+        patientId: {
+            field: 'patient_id',
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        patientHistoryId: {
+            field: 'patient_history_id',
+            type: DataTypes.INTEGER(11),
+            allowNull: false
+        },
+        userId: {
+            field: 'user_id',
+            type: DataTypes.INTEGER(11),
             allowNull: false
         },
     },
@@ -47,8 +94,5 @@ const Referred = sequelize.define(
         underscored: true
     }
 );
-
-User.belongsToMany(Patient, { through: Referred });
-Patient.belongsToMany(User, { through: Referred });
 
 export default Referred;

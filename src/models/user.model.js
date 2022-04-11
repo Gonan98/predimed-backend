@@ -58,6 +58,10 @@ const User = sequelize.define(
             type: DataTypes.STRING,
             allowNull: true
         },
+        college: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     },
     {
         tableName: 'users',
