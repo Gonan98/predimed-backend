@@ -1,46 +1,59 @@
 import fs from 'fs';
 import { NeuralNetwork } from "brain.js";
 
+const prob = {
+    leucemia: 0,
+    linfoma: 0,
+    tsc: 0,
+    neuroblastoma: 0,
+    tumoresOseos: 0,
+    sarcomas: 0,
+    retinoblastomas: 0,
+    tcg: 0,
+    tumorHepatico: 0,
+    histiocitosis: 0
+}
+
 const trainingData = [
     {
         input: [1,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0],
-        output: { leucemia: 1 }
+        output: { ...prob, leucemia: 1 }
     },
     {
         input: [1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0],
-        output: { linfoma: 1 }
+        output: { ...prob, linfoma: 1 }
     },
     {
         input: [0,1,0,0,0,1,0,1,0,0,1,1,0,0,0,0,1],
-        output: { tsc: 1 }
+        output: { ...prob, tsc: 1 }
     },
     {
         input: [0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0],
-        output: { neuroblastoma: 1 }
+        output: { ...prob, neuroblastoma: 1 }
     },
     {
         input: [0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
-        output: { tumoresOseos: 1 }
+        output: { ...prob, tumoresOseos: 1 }
     },
     {
         input: [0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0],
-        output: { sarcomas: 1 }
+        output: { ...prob, sarcomas: 1 }
     },
     {
         input: [0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0],
-        output: { retinoblastomas: 1 }
+        output: { ...prob, retinoblastomas: 1 }
     },
     {
         input: [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0],
-        output: { tcg: 1 }
+        output: { ...prob, tcg: 1 }
     },
     {
         input: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1],
-        output: { tumorHepatico: 1 }
+        output: { ...prob, tumorHepatico: 1 }
     },
     {
         input: [0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0],
-        output: { histiocitosis: 1 }
+        output: { ...prob, histiocitosis: 1 }
     }
 ];
 
@@ -50,32 +63,28 @@ function saveModel(network) {
 }
 
 function loadModel() {
-    fs.readFile('network_state.json', 'utf-8', (err, data) => {
-        if (err) return '';
-        return JSON.parse(data);
-    });
+    try {
+        const model = fs.readFileSync('network_state.json', 'utf-8');
+        return JSON.parse(model);
+    } catch (error) {
+        return null;
+    }
 }
 
 function main() {
 
     const model = loadModel();
-    const net = new NeuralNetwork({ hiddenLayers: [3] });
+    const net = new NeuralNetwork();
 
     if (model) {
         net.fromJSON(model);
     } else {
-        net.train(trainingData, {
-            log: err => console.error(err),
-            iterations: 1000
-        });
+        net.train(trainingData);
         saveModel(net);
     }
+    
+    const result = net.run([0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1,0]);
 
-    const result = net.run([1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0]);
-
-    console.log(result);
-
-    console.log('\n-----Rounded Result-----');
     for (const desease in result) {
         console.log(desease, ': ', Number(Math.round(result[desease]+'e2')+'e-2'));
     }
