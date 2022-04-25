@@ -16,43 +16,43 @@ const prob = {
 
 const trainingData = [
     {
-        input: [1,0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0],
+        input: [1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         output: { ...prob, leucemia: 1 }
     },
     {
-        input: [1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0],
+        input: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         output: { ...prob, linfoma: 1 }
     },
     {
-        input: [0,1,0,0,0,1,0,1,0,0,1,1,0,0,0,0,1],
+        input: [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1],
         output: { ...prob, tsc: 1 }
     },
     {
-        input: [0,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0],
+        input: [0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
         output: { ...prob, neuroblastoma: 1 }
     },
     {
-        input: [0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+        input: [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
         output: { ...prob, tumoresOseos: 1 }
     },
     {
-        input: [0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,1,0],
+        input: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0],
         output: { ...prob, sarcomas: 1 }
     },
     {
-        input: [0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0],
+        input: [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         output: { ...prob, retinoblastomas: 1 }
     },
     {
-        input: [0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0],
+        input: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0],
         output: { ...prob, tcg: 1 }
     },
     {
-        input: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1],
+        input: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
         output: { ...prob, tumorHepatico: 1 }
     },
     {
-        input: [0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0],
+        input: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
         output: { ...prob, histiocitosis: 1 }
     }
 ];
@@ -82,11 +82,11 @@ function main() {
         net.train(trainingData);
         saveModel(net);
     }
-    
-    const result = net.run([0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1,0]);
+
+    const result = net.run([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
     for (const desease in result) {
-        console.log(desease, ': ', Number(Math.round(result[desease]+'e2')+'e-2'));
+        console.log(desease, ': ', Number(Math.round(result[desease] + 'e2') + 'e-2'));
     }
 }
 

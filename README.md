@@ -12,5 +12,7 @@ REST API para el registro de medicos.
 
 - DB_USER
 - DB_PASSWORD
+- DB_HOST
+- DB_NAME
 - JWT_SECRET
 - CRYPTO_SECRET
