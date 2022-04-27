@@ -11,6 +11,7 @@ import districtRoutes from './routes/district.routes';
 import establishmentRoutes from './routes/establishments.routes';
 import symptomRoutes from './routes/symptom.routes';
 import diseaseRoutes from './routes/disease.routes';
+import aiRoutes from './routes/ai.routes';
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use('/api/v1/districts', districtRoutes);
 app.use('/api/v1/establishments', establishmentRoutes);
 app.use('/api/v1/symptoms', symptomRoutes);
 app.use('/api/v1/diseases', diseaseRoutes);
+app.use('/api/v1/nn', aiRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hola!");

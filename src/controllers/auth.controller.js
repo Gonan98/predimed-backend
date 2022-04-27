@@ -62,7 +62,8 @@ export const signIn = async (req, res) => {
         const token = jwt.sign({ id: userDB.id, isAdmin: userDB.isAdmin }, process.env.JWT_SECRET, { expiresIn: 86400 });
 
         res.status(200).json({
-            token
+            token,
+            isAdmin: userDB.isAdmin
         });
 
     } catch (error) {
