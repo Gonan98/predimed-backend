@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
+import Estableshiment from './establishments.model'
 
 const User = sequelize.define(
     'user',
@@ -28,6 +29,38 @@ const User = sequelize.define(
         isAdmin: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        gender: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        profession: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        employeeStatus: {
+            field: 'employee_status',
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        workingCondition: {
+            field: 'working_condition',
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        documentNumber: {
+            field: 'document_number',
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        documentMedic: {
+            field: 'document_medic',
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        college: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     },
     {
@@ -35,5 +68,7 @@ const User = sequelize.define(
         underscored: true
     }
 );
+
+User.belongsTo(Estableshiment, { foreignKey: 'establishment_id', allowNull: true });
 
 export default User;

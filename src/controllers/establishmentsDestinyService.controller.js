@@ -17,7 +17,7 @@ export const getEstablishmentsDestinyService = async (req, res) => {
         res.status(200).json({ next, limit, pagination, data: establishmentsDestinyServices });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { add, getAll, updateById, deleteById, getById } from "../controllers/patient.controller";
+import { add, getAll, updateById, deleteById, getById } from "../controllers/incidence.controller";
 import { verifyToken } from "../middlewares/authentication";
 
 const router = Router();

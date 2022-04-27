@@ -2,6 +2,10 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
+// swagger
+const swaggerUI = require("swagger-ui-express")
+const swaggerDocument = require('../swagger.json');
+
 import authRoutes from './routes/auth.routes';
 import userRoutes from "./routes/user.routes";
 import patientRoutes from './routes/patient.routes';
@@ -22,6 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/diseases', diseaseRoutes);
 app.use('/api/v1/patients', patientRoutes);
 app.use('/api/v1/departments', departmentRoutes);
 app.use('/api/v1/provinces', provinceRoutes);

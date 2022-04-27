@@ -1,14 +1,14 @@
 import { Router } from 'express';
-import { createUser, deleteUser, getUserById, getUserCredentials, getUsers, updateUser } from '../controllers/user.controller';
-import { verifyTokenAndAdmin } from '../middlewares/authentication';
+import { add, deleteById, getAll, getById, getCredentials, updateById } from '../controllers/user.controller';
+import { verifyToken } from '../middlewares/authentication';
 
 const router = Router();
 
-router.post('/', verifyTokenAndAdmin, createUser);
-router.get('/', verifyTokenAndAdmin, getUsers);
-router.get('/:id', verifyTokenAndAdmin, getUserById);
-router.get('/:id/credentials', verifyTokenAndAdmin, getUserCredentials);
-router.put('/:id', verifyTokenAndAdmin, updateUser);
-router.delete('/:id', verifyTokenAndAdmin, deleteUser);
+router.post('/', verifyToken, add);
+router.get('/', verifyToken, getAll);
+router.get('/:id', verifyToken, getById);
+router.get('/:id/credentials', verifyToken, getCredentials);
+router.put('/:id', verifyToken, updateById);
+router.delete('/:id', verifyToken, deleteById);
 
 export default router;

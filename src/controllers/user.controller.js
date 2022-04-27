@@ -2,20 +2,21 @@ import generator from 'generate-password';
 import Cryptojs from 'crypto-js';
 import User from '../models/user.model';
 
-export const createUser = async (req, res) => {
-    const { firstName, lastName, contactCenter } = req.body;
-
-    if (!firstName || !lastName || !contactCenter)
-        return res.status(400).json({ message: 'Some data is missing' });
+export const add = async (req, res) => {
+    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition,  documentNumber, documentMedic, college } = req.body;
 
     try {
 
-        const username = 'med' + firstName.slice(0,1).toLowerCase() + lastName.slice(0,3).toLowerCase();
+        if (isAdmin === true) {
+            const existUserName = await User.count({ where: { username: username } })
+            if (existUserName > 0) {
+                throw "USERNAME EXISTED"
+            }
+        }
 
-        const password = generator.generate({
-            length: 10,
-            numbers: true
-        });
+        let usernameDoc = username
+        if (!isAdmin)
+            usernameDoc = 'med' + firstName.slice(0, 1).toLowerCase() + lastName.slice(0, 3).toLowerCase();
 
         const hashedPassword = Cryptojs.AES.encrypt(
             password,
@@ -26,8 +27,16 @@ export const createUser = async (req, res) => {
             firstName,
             lastName,
             contactCenter,
-            username,
-            password: hashedPassword
+            gender: gender ?? '',
+            profession: profession ?? '',
+            "establishment_id": establishment ?? null,
+            employeeStatus: employeeStatus ?? '',
+            workingCondition: workingCondition ?? '',
+            username: usernameDoc,
+            password: hashedPassword,
+            documentNumber,
+            documentMedic,
+            college
         });
 
         res.status(201).json({
@@ -36,12 +45,12 @@ export const createUser = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
-export const getUserCredentials = async (req, res) => {
+export const getCredentials = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id, {
             attributes: ['username', 'password']
@@ -62,28 +71,32 @@ export const getUserCredentials = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 }
 
-export const getUsers = async (req, res) => {
+export const getAll = async (req, res) => {
+    const { isAdmin } = req.query
     try {
-        const users = await User.findAll({
-            attributes: {
-                exclude: ['password', 'isAdmin']
-            },
-            where: { isAdmin: false }
-        });
+        let users = []
+        if (!isAdmin) {
+            users = await User.findAll({
+                attributes: { exclude: ['password', 'isAdmin'] },
+                where: { isAdmin: isAdmin }
+            });
+        } else {
+            users = await User.findAll({ attributes: { exclude: ['password', 'isAdmin'] } });
+        }
         res.status(200).json(users);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
-export const getUserById = async (req, res) => {
+export const getById = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id, {
             attributes: {
@@ -96,39 +109,66 @@ export const getUserById = async (req, res) => {
         res.status(200).json(user);
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
-export const updateUser = async (req, res) => {
+export const updateById = async (req, res) => {
     const { id } = req.params;
-    const { firstName, lastName, contactCenter } = req.body;
-
+    const { firstName, lastName, contactCenter, username, password, isAdmin, gender, profession, establishment, employeeStatus, workingCondition, documentNumber, documentMedic } = req.body;
+    console.log('body => ', req.body)
     try {
-        await User.update(
-            {
-                firstName,
-                lastName,
-                contactCenter,
-            },
-            {
-                where: {
-                    id,
+        if (isAdmin === true) {
+            await User.update(
+                {
+                    firstName,
+                    lastName,
+                    contactCenter,
+                    username
                 },
-            }
-        );
+                {
+                    where: {
+                        id,
+                    },
+                }
+            );
+        } else {
+            const usernameDoc = 'med' + firstName.slice(0, 1).toLowerCase() + lastName.slice(0, 3).toLowerCase();
+            await User.update(
+                {
+                    firstName,
+                    lastName,
+                    contactCenter,
+                    gender,
+                    username: usernameDoc,
+                    profession,
+                    "establishment_id": establishment,
+                    employeeStatus,
+                    workingCondition,
+                    documentNumber,
+                    documentMedic,
+                    college
+                },
+                {
+                    where: {
+                        id,
+                    },
+                }
+            );
+        }
+
         res.status(200).json({
             message: 'User updated successfully',
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };
 
-export const deleteUser = async (req, res) => {
+export const deleteById = async (req, res) => {
     try {
         await User.destroy({
             where: {
@@ -140,7 +180,7 @@ export const deleteUser = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: 'Database error',
+            message: error,
         });
     }
 };

@@ -4,7 +4,7 @@ import User from '../models/user.model';
 
 export const signUp = async (req, res) => {
     const { firstName, lastName, contactCenter, username, password, isAdmin } = req.body;
-    
+
     if (!firstName || !lastName || !contactCenter || !username || !password)
         return res.status(400).json({
             message: 'Some data is missing'
@@ -68,7 +68,7 @@ export const signIn = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({
-            message: 'An error has occurred'
+            message: error
         });
     }
 }

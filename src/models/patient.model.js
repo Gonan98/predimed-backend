@@ -20,7 +20,7 @@ const Patient = sequelize.define(
             unique: true
         },
         birthdate: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             allowNull: false
         },
         address: {
@@ -38,8 +38,6 @@ const Patient = sequelize.define(
     }
 );
 
-Location.hasMany(Patient);
-Patient.belongsTo(Location);
 District.hasMany(Patient);
 Patient.belongsTo(District, { foreignKey: 'districtId', allowNull: false });
 
