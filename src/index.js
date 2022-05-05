@@ -6,6 +6,7 @@ import './models';
 
 async function main() {
     try {
+        await sequelize.drop();
         await sequelize.sync();
         console.log('Database connected');
     } catch (error) {
