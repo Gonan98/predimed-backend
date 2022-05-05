@@ -1,16 +1,15 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
 
-const Referred = sequelize.define(
-    'referred',
+const Antecedent = sequelize.define(
+    'Antecedent',
     {
-        reason: {
+        detail: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        referenceDate: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+        issueDate: {
+            type: DataTypes.DATE
         }
     },
     {
@@ -19,4 +18,4 @@ const Referred = sequelize.define(
     }
 );
 
-export default Referred;
+export default Antecedent;

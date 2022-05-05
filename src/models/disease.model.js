@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../db";
 
 const Disease = sequelize.define(
-    'disease',
+    'Disease',
     {
         name: {
             type: DataTypes.STRING,
@@ -10,8 +10,8 @@ const Disease = sequelize.define(
         }
     },
     {
-        createdAt: false,
-        updatedAt: false
+        underscored: true,
+        timestamps: false
     }
 );
 

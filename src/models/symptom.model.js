@@ -4,19 +4,18 @@ import sequelize from "../db";
 const Symptom = sequelize.define(
     'symptom',
     {
-        name: {
+        description: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        type: {
-            type: DataTypes.STRING,
+        requiredAttention: {
+            type: DataTypes.BOOLEAN,
             allowNull: false
         }
     },
     {
         underscored: true,
-        createdAt: false,
-        updatedAt: false
+        timestamps: false
     }
 );
 

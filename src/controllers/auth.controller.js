@@ -1,5 +1,6 @@
 import Cryptojs from 'crypto-js';
 import jwt from 'jsonwebtoken';
+import config from '../config';
 import User from '../models/user.model';
 
 export const signUp = async (req, res) => {
@@ -12,7 +13,7 @@ export const signUp = async (req, res) => {
 
     const hashedPassword = Cryptojs.AES.encrypt(
         password,
-        process.env.CRYPTO_SECRET
+        config.cryptoSecret
     ).toString();
 
     try {
@@ -52,14 +53,14 @@ export const signIn = async (req, res) => {
 
         const hashedPassword = Cryptojs.AES.decrypt(
             userDB.password,
-            process.env.CRYPTO_SECRET
+            config.cryptoSecret
         );
 
         const originalPassword = hashedPassword.toString(Cryptojs.enc.Utf8);
 
         if (password !== originalPassword) return res.status(400).json({ message: 'Incorrect username or password' });
 
-        const token = jwt.sign({ id: userDB.id, isAdmin: userDB.isAdmin }, process.env.JWT_SECRET, { expiresIn: 86400 });
+        const token = jwt.sign({ id: userDB.id, isAdmin: userDB.isAdmin }, config.jwtSecret, { expiresIn: 86400 });
 
         res.status(200).json({
             token,

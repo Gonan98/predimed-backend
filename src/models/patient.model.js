@@ -1,7 +1,5 @@
-import { DataTypes, Deferrable } from 'sequelize';
+import { DataTypes } from 'sequelize';
 import sequelize from '../db';
-import District from './district.model';
-import Location from './location.model';
 
 const Patient = sequelize.define(
     'patient',
@@ -31,14 +29,13 @@ const Patient = sequelize.define(
             type: DataTypes.STRING(1),
             allowNull: false
         },
+
+        //FK : ubigeoId
     },
     {
         underscored: true,
-        tableName: 'patients'
+        timestamps: false
     }
 );
-
-District.hasMany(Patient);
-Patient.belongsTo(District, { foreignKey: 'districtId', allowNull: false });
 
 export default Patient;

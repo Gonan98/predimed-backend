@@ -1,11 +1,12 @@
 import { Sequelize } from 'sequelize';
+import config from './config';
 
 const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    config.dbName,
+    config.dbUser,
+    config.dbPassword,
     {
-        host: process.env.DB_HOST,
+        host: config.dbHost,
         dialect: 'mysql',
         pool: {
             max: 5,

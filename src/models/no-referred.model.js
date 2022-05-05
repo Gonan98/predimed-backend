@@ -1,14 +1,14 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
 
-const Referred = sequelize.define(
-    'referred',
+const NoReferred = sequelize.define(
+    'noReferred',
     {
         reason: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        referenceDate: {
+        issueDate: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW
         }
@@ -19,4 +19,4 @@ const Referred = sequelize.define(
     }
 );
 
-export default Referred;
+export default NoReferred;

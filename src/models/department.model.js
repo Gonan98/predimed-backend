@@ -2,11 +2,10 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../db';
 
 const Department = sequelize.define(
-    'department',
+    'UbigeoPeruDepartment',
     {
         id: {
             type: DataTypes.STRING(2),
-            allowNull: false,
             primaryKey: true
         },
         name: {
@@ -15,10 +14,8 @@ const Department = sequelize.define(
         },
     },
     {
-        tableName: 'ubigeo_peru_departments',
         underscored: true,
-        createdAt: false,
-        updatedAt: false
+        timestamps: false
     }
 );
 
