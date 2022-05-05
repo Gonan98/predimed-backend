@@ -1,10 +1,12 @@
-import { DataTypes, Deferrable } from 'sequelize';
+import { DataTypes } from 'sequelize';
 import sequelize from '../db';
-import District from './district.model';
-import Location from './location.model';
+import Antecedent from './antecedent.model';
+import History from './history.model';
+import NoReferred from './no-referred.model';
+import Referred from './referred.model';
 
 const Patient = sequelize.define(
-    'patient',
+    'Patient',
     {
         firstName: {
             type: DataTypes.STRING,
@@ -34,11 +36,17 @@ const Patient = sequelize.define(
     },
     {
         underscored: true,
-        tableName: 'patients'
+        timestamps: false
     }
 );
 
-District.hasMany(Patient);
-Patient.belongsTo(District, { foreignKey: 'districtId', allowNull: false });
+Patient.hasMany(Referred);
+Patient.hasMany(NoReferred);
+Patient.hasMany(Antecedent);
+Patient.hasMany(History);
+Antecedent.belongsTo(Patient);
+History.belongsTo(Patient);
+Referred.belongsTo(Patient);
+NoReferred.belongsTo(Patient);
 
 export default Patient;

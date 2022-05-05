@@ -1,33 +1,32 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
+import Department from './department.model';
+import Patient from './patient.model';
+import Province from './province.model';
 
 const District = sequelize.define(
-    'district',
+    'UbigeoPeruDistrict',
     {
         id: {
             type: DataTypes.STRING(6),
-            allowNull: false,
             primaryKey: true
         },
         name: {
             type: DataTypes.STRING(45),
             allowNull: false
-        },
-        provinceId: {
-            type: DataTypes.STRING(4),
-            allowNull: false
-        },
-        departmentId: {
-            type: DataTypes.STRING(2),
-            allowNull: false
-        },
+        }
     },
     {
-        tableName: 'ubigeo_peru_districts',
         underscored: true,
-        createdAt: false,
-        updatedAt: false
+        timestamps: false
     }
 );
+
+District.belongsTo(Department);
+District.hasMany(Patient)
+Province.hasMany(District, { foreignKey: 'provinceId' });
+Department.hasMany(District, { foreignKey: 'departmentId' });
+Patient.belongsTo(District, { foreignKey: 'ubigeoId' });
+District.belongsTo(Province);
 
 export default District;

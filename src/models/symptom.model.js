@@ -1,23 +1,26 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db";
+import Referred from "./referred.model";
 
 const Symptom = sequelize.define(
-    'symptom',
+    'Symptom',
     {
-        name: {
-            type: DataTypes.STRING,
+        description: {
+            type: DataTypes.STRING(100),
             allowNull: false
         },
-        type: {
-            type: DataTypes.STRING,
+        requiredAttention: {
+            type: DataTypes.BOOLEAN,
             allowNull: false
         }
     },
     {
         underscored: true,
-        createdAt: false,
-        updatedAt: false
+        timestamps: false
     }
 );
+
+Symptom.belongsToMany(Referred, { through: 'referred_patient_symptoms' });
+Referred.belongsToMany(Symptom, { through: 'referred_patient_symptoms' });
 
 export default Symptom;

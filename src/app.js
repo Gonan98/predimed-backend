@@ -3,8 +3,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 // swagger
-const swaggerUI = require("swagger-ui-express")
-const swaggerDocument = require('../swagger.json');
+// const swaggerUI = require("swagger-ui-express")
+// const swaggerDocument = require('../swagger.json');
 
 import authRoutes from './routes/auth.routes';
 import userRoutes from "./routes/user.routes";
@@ -12,7 +12,6 @@ import patientRoutes from './routes/patient.routes';
 import departmentRoutes from './routes/department.routes';
 import provinceRoutes from './routes/province.routes';
 import districtRoutes from './routes/district.routes';
-import establishmentRoutes from './routes/establishments.routes';
 import symptomRoutes from './routes/symptom.routes';
 import diseaseRoutes from './routes/disease.routes';
 import aiRoutes from './routes/ai.routes';
@@ -31,7 +30,6 @@ app.use('/api/v1/patients', patientRoutes);
 app.use('/api/v1/departments', departmentRoutes);
 app.use('/api/v1/provinces', provinceRoutes);
 app.use('/api/v1/districts', districtRoutes);
-app.use('/api/v1/establishments', establishmentRoutes);
 app.use('/api/v1/symptoms', symptomRoutes);
 app.use('/api/v1/diseases', diseaseRoutes);
 app.use('/api/v1/nn', aiRoutes);

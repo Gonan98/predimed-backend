@@ -1,26 +1,14 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
-import Estableshiment from './establishments.model'
-import User from './user.model'
 
 const Incidence = sequelize.define(
-    'incidence',
+    'Incidence',
     {
-        id: {
-            primaryKey: true,
-            type: DataTypes.INTEGER(),
-            allowNull: false,
-            autoIncrement: true
-        },
-        topic: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         status: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        subject: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -28,33 +16,27 @@ const Incidence = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         priority: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        registerType: {
-            field: 'register_type',
+        incidenceType: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        solutionDetail: {
-            field: 'solution_detail',
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        dateSolution: {
-            field: 'date_solution',
+        createdAt: {
             type: DataTypes.DATE,
-            allowNull: true
+            defaultValue: DataTypes.NOW
         }
     },
     {
-        tableName: 'incidences',
-        underscored: true
+        underscored: true,
+        timestamps: false
     }
 );
-
-Incidence.belongsTo(Estableshiment, { foreignKey: 'establishment_id', allowNull: false });
-Incidence.belongsTo(User, { foreignKey: 'user_id', allowNull: false });
 
 export default Incidence;

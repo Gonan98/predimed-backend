@@ -1,12 +1,12 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
+import Province from './province.model';
 
 const Department = sequelize.define(
-    'department',
+    'UbigeoPeruDepartment',
     {
         id: {
             type: DataTypes.STRING(2),
-            allowNull: false,
             primaryKey: true
         },
         name: {
@@ -15,11 +15,12 @@ const Department = sequelize.define(
         },
     },
     {
-        tableName: 'ubigeo_peru_departments',
         underscored: true,
-        createdAt: false,
-        updatedAt: false
+        timestamps: false
     }
 );
+
+Province.belongsTo(Department);
+Department.hasMany(Province, { foreignKey: 'departmentId' });
 
 export default Department;

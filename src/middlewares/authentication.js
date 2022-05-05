@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
+import config from '../config';
 
 export const verifyToken = (req, res, next) => {
     const { authorization } = req.headers;
     console.log('authorization => ', authorization)
     if (authorization) {
         const token = authorization.split(' ')[1];
-        jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+        jwt.verify(token, config.jwtSecret, (err, payload) => {
             if (err) return res.status(403).json({
                 auth: false,
                 message: 'Token is not valid!'

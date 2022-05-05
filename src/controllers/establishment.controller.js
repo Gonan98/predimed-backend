@@ -1,4 +1,4 @@
-import Establishment from '../models/establishments.model';
+import Establishment from '../models/establishment.model';
 import functions from '../utils/functions';
 
 export const getEstablishments = async (req, res) => {

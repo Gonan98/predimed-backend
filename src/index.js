@@ -1,20 +1,18 @@
-import 'dotenv/config';
 import app from './app';
+import config from './config';
 import sequelize from './db';
-
-const port = process.env.PORT || 5001;
 
 async function main() {
     try {
         // await sequelize.sync({ alter: true });
-        await sequelize.sync({  });
+        await sequelize.sync({ force: true });
         console.log('Database connected');
     } catch (error) {
         console.error('Unable to connect to database');
     }
 
-    app.listen(port, () => {
-        console.log('Server listening on port', port);
+    app.listen(config.port, () => {
+        console.log('Server listening on port', config.port);
     });
 }
 
