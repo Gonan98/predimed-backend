@@ -1,10 +1,8 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
-import District from './district.model';
-import Referred from './referred.model';
 
 const Establishment = sequelize.define(
-    'Establishment',
+    'establishment',
     {
         code: {
             type: DataTypes.INTEGER,
@@ -15,7 +13,7 @@ const Establishment = sequelize.define(
             allowNull: false
         },
         address: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING,
             allowNull: false
         },
     },
@@ -24,11 +22,5 @@ const Establishment = sequelize.define(
         timestamps: false
     }
 );
-
-Establishment.belongsTo(District, { foreignKey: 'ubigeoId' });
-Establishment.hasMany(Referred);
-Referred.belongsTo(Establishment, { foreignKey: 'sourceEstablishmentCode' });
-Referred.belongsTo(Establishment, { foreignKey: 'destinyEstablishmentCode' })
-District.hasMany(Establishment);
 
 export default Establishment;

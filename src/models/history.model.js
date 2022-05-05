@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../db';
 
 const History = sequelize.define(
-    'History',
+    'history',
     {
         weight: {
             type: DataTypes.DOUBLE,

@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../db";
 
 const Specialty = sequelize.define(
-    'Specialty',
+    'specialty',
     {
         code: {
             type: DataTypes.INTEGER,

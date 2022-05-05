@@ -1,12 +1,8 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
-import Establishment from './establishment.model';
-import Incidence from './incidence.model';
-import NoReferred from './no-referred.model';
-import Referred from './referred.model';
 
 const User = sequelize.define(
-    'User',
+    'user',
     {
         firstName: {
             type: DataTypes.STRING(30),
@@ -63,14 +59,5 @@ const User = sequelize.define(
         timestamps: false
     }
 );
-
-User.belongsTo(Establishment, { foreignKey: 'establishmentCode' });
-User.hasMany(Incidence);
-User.hasMany(Referred);
-User.hasMany(NoReferred);
-Referred.belongsTo(User);
-NoReferred.belongsTo(User);
-Establishment.hasMany(User);
-Incidence.belongsTo(User);
 
 export default User;

@@ -2,10 +2,11 @@ import app from './app';
 import config from './config';
 import sequelize from './db';
 
+import './models';
+
 async function main() {
     try {
-        // await sequelize.sync({ alter: true });
-        await sequelize.sync({ force: true });
+        await sequelize.sync();
         console.log('Database connected');
     } catch (error) {
         console.error('Unable to connect to database');

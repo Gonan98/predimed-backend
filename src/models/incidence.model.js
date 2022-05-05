@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../db';
 
 const Incidence = sequelize.define(
-    'Incidence',
+    'incidence',
     {
         status: {
             type: DataTypes.STRING,

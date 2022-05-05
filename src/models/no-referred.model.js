@@ -1,9 +1,8 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../db';
-import Symptom from './symptom.model';
 
 const NoReferred = sequelize.define(
-    'NoReferred',
+    'noReferred',
     {
         reason: {
             type: DataTypes.STRING,
@@ -19,8 +18,5 @@ const NoReferred = sequelize.define(
         timestamps: false
     }
 );
-
-NoReferred.belongsToMany(Symptom, { through: 'no_referred_patient_symptoms' });
-Symptom.belongsToMany(NoReferred, { through: 'no_referred_patient_symptoms' });
 
 export default NoReferred;

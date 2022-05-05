@@ -1,6 +1,6 @@
 import Patient from "../models/patient.model";
 
-export const add = async (req, res) => {
+export const addPatient = async (req, res) => {
     const {
         firstName,
         lastName,
@@ -8,10 +8,10 @@ export const add = async (req, res) => {
         birthdate,
         address,
         gender,
-        districtId
+        ubigeoId
     } = req.body;
 
-    if (!firstName || !lastName || !documentNumber || !birthdate || !address || !gender || !districtId) {
+    if (!firstName || !lastName || !documentNumber || !birthdate || !address || !gender || !ubigeoId) {
         return res.status(400).json({ message: 'Some data is missing' });
     }
 
@@ -22,8 +22,7 @@ export const add = async (req, res) => {
             }
         });
 
-        if (patient)
-            throw "Patient existed"
+        if (patient) return res.status(400).json({ message: 'Patient is already registered' })
 
         patient = await Patient.create({
             firstName,
@@ -31,33 +30,25 @@ export const add = async (req, res) => {
             documentNumber,
             birthdate,
             address,
-            districtId,
-            gender
+            gender,
+            ubigeoId
         });
 
         res.status(201).json({
             message: 'Patient created successfully',
         });
 
-    } catch (error) {
-        res.status(500).json({
-            message: error,
-        });
+    } catch (err) {
+        res.status(500).json(err);
     }
 }
 
 export const getAll = async (req, res) => {
-    const { docNumber } = req.query
     try {
-        let patients = []
-        if (docNumber !== undefined) patients = await Patient.findAll({ where: { documentNumber: docNumber } })
-        else patients = await Patient.findAll({})
+        const patients = await Patient.findAll();
         res.status(200).json(patients);
-    } catch (error) {
-        console.log('error => ', error)
-        res.status(500).json({
-            message: error,
-        });
+    } catch (err) {
+        res.status(500).json(err);
     }
 }
 
@@ -65,67 +56,24 @@ export const getAll = async (req, res) => {
 export const getById = async (req, res) => {
     const { id } = req.params
     try {
-        const patient = await Patient.findByPk(id)
+        const patient = await Patient.findByPk(id);
+
+        if (!patient) return res.status(400).json({message: 'Patient not found'});
+
         res.status(200).json(patient);
-    } catch (error) {
-        res.status(500).json({
-            message: error,
-        });
+    } catch (err) {
+        res.status(500).json(err);
     }
 }
 
-
-export const deleteById = async (req, res) => {
-    const { id } = req.params
+export const getByDocumentNumber = async (req, res) => {
     try {
-        await Patient.destroy({ where: { id } });
-        res.status(201).json({
-            message: 'Patient deleted successfully',
-        });
-    } catch (error) {
+        const patient = await Patient.findOne({ where: { documentNumber: req.params.doc } });
+        if (!patient) return res.status(400).json({message: 'Patient not found'});
+        res.status(200).json(patient);
+    } catch (err) {
         res.status(500).json({
-            message: error,
-        });
-    }
-}
-
-export const updateById = async (req, res) => {
-    const { id } = req.params
-    const {
-        firstName,
-        lastName,
-        documentNumber,
-        birthdate,
-        address,
-        gender,
-        districtId
-    } = req.body;
-
-    if (!firstName || !lastName || !documentNumber || !birthdate || !address || !gender || !districtId) {
-        return res.status(400).json({ message: 'Some data is missing' });
-    }
-
-    try {
-        await Patient.update(
-            {
-                firstName,
-                lastName,
-                documentNumber,
-                birthdate,
-                address,
-                gender,
-                districtId
-            },
-            { where: { id } }
-        );
-
-        res.status(201).json({
-            message: 'Patient update successfully',
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            message: error,
+            message: err,
         });
     }
 }

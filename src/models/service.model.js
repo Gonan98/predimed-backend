@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../db";
 
 const Service = sequelize.define(
-    'Service',
+    'service',
     {
         code: {
             type: DataTypes.INTEGER,

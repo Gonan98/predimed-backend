@@ -1,12 +1,11 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db";
-import Referred from "./referred.model";
 
 const Symptom = sequelize.define(
-    'Symptom',
+    'symptom',
     {
         description: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING,
             allowNull: false
         },
         requiredAttention: {
@@ -19,8 +18,5 @@ const Symptom = sequelize.define(
         timestamps: false
     }
 );
-
-Symptom.belongsToMany(Referred, { through: 'referred_patient_symptoms' });
-Referred.belongsToMany(Symptom, { through: 'referred_patient_symptoms' });
 
 export default Symptom;
