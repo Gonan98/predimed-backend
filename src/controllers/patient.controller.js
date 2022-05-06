@@ -1,3 +1,4 @@
+import District from "../models/district.model";
 import Patient from "../models/patient.model";
 
 export const addPatient = async (req, res) => {

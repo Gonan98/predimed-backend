@@ -4,9 +4,9 @@ import config from '../config';
 import User from '../models/user.model';
 
 export const signUp = async (req, res) => {
-    const { firstName, lastName, contactCenter, username, password, isAdmin } = req.body;
+    const { firstName, lastName, username, password, isAdmin } = req.body;
 
-    if (!firstName || !lastName || !contactCenter || !username || !password)
+    if (!firstName || !lastName || !username || !password || !isAdmin)
         return res.status(400).json({
             message: 'Some data is missing'
         });
@@ -20,7 +20,6 @@ export const signUp = async (req, res) => {
         await User.create({
             firstName,
             lastName,
-            contactCenter,
             username,
             password: hashedPassword,
             isAdmin

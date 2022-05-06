@@ -23,11 +23,11 @@ const User = sequelize.define(
         },
         documentNumber: {
             type: DataTypes.STRING(8),
-            allowNull: false
+            unique: true,
         },
         documentMedic: {
             type: DataTypes.STRING(8),
-            allowNull: false
+            unique: true,
         },
         isAdmin: {
             type: DataTypes.BOOLEAN,
@@ -35,23 +35,18 @@ const User = sequelize.define(
         },
         gender: {
             type: DataTypes.STRING(1),
-            allowNull: false
         },
         profession: {
             type: DataTypes.STRING(30),
-            allowNull: false
         },
         college: {
             type: DataTypes.STRING(50),
-            allowNull: false
         },
         employeeStatus: {
             type: DataTypes.STRING(20),
-            allowNull: false
         },
         workingCondition: {
             type: DataTypes.STRING(20),
-            allowNull: false
         }
     },
     {

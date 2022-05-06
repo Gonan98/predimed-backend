@@ -16,6 +16,12 @@ export const createUser = async (req, res) => {
         workingCondition
     } = req.body;
 
+    if (!firstName || !lastName || !documentMedic || !documentNumber || !gender || !profession || !college || !employeeStatus || !workingCondition) {
+        return res.status(400).json({
+            message: 'Some data is missing'
+        })
+    }
+
     try {
 
         const username = 'med' + firstName.slice(0,1).toLowerCase() + lastName.slice(0,3).toLowerCase();
