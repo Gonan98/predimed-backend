@@ -4,6 +4,10 @@ import sequelize from "../db";
 const Disease = sequelize.define(
     'Disease',
     {
+        code: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false

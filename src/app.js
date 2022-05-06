@@ -11,6 +11,7 @@ import symptomRouter from './routes/symptom.routes';
 import diseaseRouter from './routes/disease.routes';
 import aiRouter from './routes/ai.routes';
 import ubigeoRouter from './routes/ubigeo.routes';
+import establishmentRouter from './routes/establishment.routes';
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/api/v2/histories', historyRouter);
 app.use('/api/v2/antecedents', antecedentRouter);
 app.use('/api/v2/symptoms', symptomRouter);
 app.use('/api/v2/ubigeo', ubigeoRouter);
+app.use('/api/v2/establishments', establishmentRouter);
 app.use('/api/v2/nn', aiRouter);
 
 app.get("/", (req, res) => {

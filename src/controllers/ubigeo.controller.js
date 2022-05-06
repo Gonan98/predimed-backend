@@ -23,7 +23,8 @@ export const getProvincesByDepartmentId = async (req, res) => {
         const provinces = await Province.findAll({
             where: {
                 departmentId
-            }
+            },
+            include: Department
         });
 
         res.status(200).json(provinces);
@@ -43,7 +44,8 @@ export const getDistrictsByProvinceId = async (req, res) => {
         const districts = await District.findAll({
             where: {
                 provinceId
-            }
+            },
+            include: Province
         });
 
         res.status(200).json(districts);

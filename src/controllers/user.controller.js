@@ -11,12 +11,11 @@ export const createUser = async (req, res) => {
         documentMedic,
         gender,
         profession,
-        college,
         employeeStatus,
         workingCondition
     } = req.body;
 
-    if (!firstName || !lastName || !documentMedic || !documentNumber || !gender || !profession || !college || !employeeStatus || !workingCondition) {
+    if (!firstName || !lastName || !documentMedic || !documentNumber || !gender || !profession || !employeeStatus || !workingCondition) {
         return res.status(400).json({
             message: 'Some data is missing'
         })
@@ -43,7 +42,7 @@ export const createUser = async (req, res) => {
             documentMedic,
             gender,
             profession,
-            college,
+            college: 'COLEGIO MEDICO DEL PERU',
             employeeStatus,
             workingCondition,
             username,

@@ -4,6 +4,10 @@ import sequelize from "../db";
 const Symptom = sequelize.define(
     'symptom',
     {
+        code: {
+            type: DataTypes.STRING,
+            primaryKey: true
+        },
         description: {
             type: DataTypes.STRING,
             allowNull: false

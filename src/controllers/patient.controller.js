@@ -69,7 +69,7 @@ export const getById = async (req, res) => {
 
 export const getByDocumentNumber = async (req, res) => {
     try {
-        const patient = await Patient.findOne({ where: { documentNumber: req.params.doc } });
+        const patient = await Patient.findOne({ where: { documentNumber: req.params.doc }, include: District });
         if (!patient) return res.status(400).json({message: 'Patient not found'});
         res.status(200).json(patient);
     } catch (err) {

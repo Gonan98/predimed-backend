@@ -8128,263 +8128,263 @@ INSERT INTO establishments(code,name,ubigeo_id,address) VALUES (16618,'SONRIE MA
 (10856,'GOLDENT S.A.C.','150122','CALLE ESPERANZA 184 OF. 313 MIRAFLORES');
 
 
-INSERT INTO specialties (specialty_name) VALUES ('ADMINISTRACIÓN Y GERENCIA EN SALUD');
-INSERT INTO specialties (specialty_name) VALUES ('ALTO RIESGO Y EMERGENCIAS OBSTETRICAS');
-INSERT INTO specialties (specialty_name) VALUES ('ANATOMÍA PATOLÓGICA - PATOLOGÍA CLÍNICA');
-INSERT INTO specialties (specialty_name) VALUES ('ANESTESIOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ATENCIÓN OBSTÉTRICA DE LA EMERGENCIA Y CUIDADOS CRÍTICOS');
-INSERT INTO specialties (specialty_name) VALUES ('BIENESTAR FETAL');
-INSERT INTO specialties (specialty_name) VALUES ('CARDIOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('CENTRO QUIRÚRGICO');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA BUCAL MÁXILO FACIAL');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA DE CABEZA Y CUELLO');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA DE CABEZA Y CUELLO Y MAXILOFACIAL');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA DE TÓRAX Y CARDIOVASCULAR');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA GENERAL');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA PLÁSTICA');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA PLÁSTICA Y RECONSTRUCTIVA');
-INSERT INTO specialties (specialty_name) VALUES ('CUIDADO INTEGRAL INFANTIL');
-INSERT INTO specialties (specialty_name) VALUES ('CUIDADOS PARA LA SALUD DEL ADULTO');
-INSERT INTO specialties (specialty_name) VALUES ('CUIDADOS QUIRÚRGICOS');
-INSERT INTO specialties (specialty_name) VALUES ('DERMATOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('DERMATOLOGÍA - DERMATOLOGÍA PEDIATRICA');
-INSERT INTO specialties (specialty_name) VALUES ('DOCENCIA EN ENFERMERÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ENDOCRINOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ENDOCRINOLOGÍA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMEDADES INFECCIOSAS Y TROPICALES');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA CARDIOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA EN CUIDADOS CRÍTICOS');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA EN EMERGENCIA Y DESASTRES');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA EN GASTROENTEROLOGÍA Y PROCEDIMIENTOS ENDOSCÓPICOS');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA EN SALUD MENTAL Y PSIQUIATRÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA GERIÁTRICA Y GERONTOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA MATERNO INFANTIL');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA NEFROLÓGICA Y UROLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('EPIDEMIOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('FARMACIA CLÍNICA');
-INSERT INTO specialties (specialty_name) VALUES ('FARMACIA HOSPITALARIA/ FARMACIA CLÍNICA');
-INSERT INTO specialties (specialty_name) VALUES ('GASTROENTEROLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('GERIATRÍA');
-INSERT INTO specialties (specialty_name) VALUES ('GINECOLOGÍA Y OBSTETRICIA');
-INSERT INTO specialties (specialty_name) VALUES ('GINECOLOGÍA Y OBSTETRICIA - GINECOLOGÍA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('HEMATOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('LABORATORIO CLÍNICO Y ANATOMÍA PATOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA DE EMERGENCIA Y DESASTRES');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA DE REHABILITACIÓN');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA INTENSIVA');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA INTERNA');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('NEFROLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('NEONATOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('NEUMOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('NEUROCIRUGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('NEUROLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ODONTOLOGIA');
-INSERT INTO specialties (specialty_name) VALUES ('ODONTOPEDIATRIA');
-INSERT INTO specialties (specialty_name) VALUES ('OFTALMOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ONCOLOGÍA QUIRÚRGICA');
-INSERT INTO specialties (specialty_name) VALUES ('ORTODONCIA DENTAL Y MAXILOFACIAL');
-INSERT INTO specialties (specialty_name) VALUES ('ORTODONCIA Y ORTOPEDIA MAXILAR');
-INSERT INTO specialties (specialty_name) VALUES ('OTORRINOLARINGOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('PEDIATRÍA');
-INSERT INTO specialties (specialty_name) VALUES ('PEDIATRÍA - MEDICINA INTENSIVA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('PEDIATRÍA - NEUMOLOGÍA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('PEDIATRÍA - NEUROLOGÍA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('PSIQUIATRÍA');
-INSERT INTO specialties (specialty_name) VALUES ('RADIOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('RADIOTERAPIA');
-INSERT INTO specialties (specialty_name) VALUES ('REUMATOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('SALUD OCUPACIONAL');
-INSERT INTO specialties (specialty_name) VALUES ('TERAPIA DE LENGUAJE');
-INSERT INTO specialties (specialty_name) VALUES ('TERAPIA FÍSICA Y REHABILITACIÓN');
-INSERT INTO specialties (specialty_name) VALUES ('TERAPIA OCUPACIONAL');
-INSERT INTO specialties (specialty_name) VALUES ('TRAUMATOLOGÍA Y ORTOPEDIA');
-INSERT INTO specialties (specialty_name) VALUES ('UROLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('ANATOMÍA PATOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('HISTOPATOLOGÍA');
-INSERT INTO specialties (specialty_name) VALUES ('LABORATORIO CLÍNICO');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA GENERAL');
-INSERT INTO specialties (specialty_name) VALUES ('PATOLOGÍA CLÍNICA');
-INSERT INTO specialties (specialty_name) VALUES ('RADIODIAGNÓSTICO');
-INSERT INTO specialties (specialty_name) VALUES ('INVESTIGACIÓN');
-INSERT INTO specialties (specialty_name) VALUES ('PSICOLOGÍA DE LAS EMERGENCIAS Y DESASTRES');
-INSERT INTO specialties (specialty_name) VALUES ('PSICOLOGÍA DE LA FAMILIA');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA GENERAL - CIRUGÍA LAPAROSCOPICA');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA GENERAL - CIRUGÍA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('EMERGENCIAS Y DESASTRES *');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA TORÁCICA Y CARDIOVASCULAR - CIRUGIA TORÁCICA');
-INSERT INTO specialties (specialty_name) VALUES ('ADMINISTRACIÓN DE SALUD');
-INSERT INTO specialties (specialty_name) VALUES ('TRAUMATOLOGÍA Y ORTOPEDIA - CIRUGÍA DE MANO');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA TORÁCICA Y CARDIOVASCULAR - CIRUGÍA NEUMOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('NUTRICIÓN');
-INSERT INTO specialties (specialty_name) VALUES ('PATOLOGÍA Y LABORATORIO CLÍNICO');
-INSERT INTO specialties (specialty_name) VALUES ('RADIOLOGÍA BUCAL Y MÁXILO FACIAL');
-INSERT INTO specialties (specialty_name) VALUES ('RIESGO OBSTETRICO');
-INSERT INTO specialties (specialty_name) VALUES ('ALTO RIESGO OBSTETRICO, CUIDADOS CRITICOS MATERNO Y EMERGENCIA OBSTETRICAS');
-INSERT INTO specialties (specialty_name) VALUES ('OBSTETRICIA DE ALTO RIESGO');
-INSERT INTO specialties (specialty_name) VALUES ('MONITOREO FETAL Y DIAGNÓSTICO POR IMÁGENES EN OBSTETRICIA');
-INSERT INTO specialties (specialty_name) VALUES ('MONITOREO FETAL');
-INSERT INTO specialties (specialty_name) VALUES ('MONITOREO FETAL Y ECOGRAFÍAS OBSTÉTRICAS');
-INSERT INTO specialties (specialty_name) VALUES ('PROMOCIÓN DE LA SALUD MATERNA CON MENCIÓN EN ESTIMULACIÓN PRENATAL Y PSICOPROFILAXIS OBSTÉTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('GESTIÓN DE CENTRAL DE ESTERILIZACIÓN');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA EN SALUD DEL ADOLESCENTE');
-INSERT INTO specialties (specialty_name) VALUES ('PSICOLOGÍA CLÍNICA Y DE LA SALUD');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA DE TÓRAX ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('CIRUGÍA GENERAL - CIRUGÍA ONCOLÓGICA DE MAMAS, TEJIDOS BLANDOS Y PIEL');
-INSERT INTO specialties (specialty_name) VALUES ('GENÉTICA MÉDICA');
-INSERT INTO specialties (specialty_name) VALUES ('ONCOLOGÍA PEDIÁTRICA');
-INSERT INTO specialties (specialty_name) VALUES ('GENÉTICA');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA FAMILIAR');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA INTEGRAL Y GESTIÓN EN SALUD');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA LEGAL');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA OCUPACIONAL Y MEDIO AMBIENTE');
-INSERT INTO specialties (specialty_name) VALUES ('MEDICINA NUCLEAR');
-INSERT INTO specialties (specialty_name) VALUES ('OFTALMOLOGÍA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('PATOLOGÍA ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('SALUD PÚBLICA');
-INSERT INTO specialties (specialty_name) VALUES ('UROLOGÍA GENERAL Y ONCOLÓGICA');
-INSERT INTO specialties (specialty_name) VALUES ('ENFERMERÍA EN CIRUGÍA CARDIOVASCULAR');
+INSERT INTO specialties (specialty_name) VALUES ('ADMINISTRACIÓN Y GERENCIA EN SALUD'),
+('ALTO RIESGO Y EMERGENCIAS OBSTETRICAS'),
+('ANATOMÍA PATOLÓGICA - PATOLOGÍA CLÍNICA'),
+('ANESTESIOLOGÍA'),
+('ATENCIÓN OBSTÉTRICA DE LA EMERGENCIA Y CUIDADOS CRÍTICOS'),
+('BIENESTAR FETAL'),
+('CARDIOLOGÍA'),
+('CENTRO QUIRÚRGICO'),
+('CIRUGÍA BUCAL MÁXILO FACIAL'),
+('CIRUGÍA DE CABEZA Y CUELLO'),
+('CIRUGÍA DE CABEZA Y CUELLO Y MAXILOFACIAL'),
+('CIRUGÍA DE TÓRAX Y CARDIOVASCULAR'),
+('CIRUGÍA GENERAL'),
+('CIRUGÍA ONCOLÓGICA'),
+('CIRUGÍA PEDIÁTRICA'),
+('CIRUGÍA PLÁSTICA'),
+('CIRUGÍA PLÁSTICA Y RECONSTRUCTIVA'),
+('CUIDADO INTEGRAL INFANTIL'),
+('CUIDADOS PARA LA SALUD DEL ADULTO'),
+('CUIDADOS QUIRÚRGICOS'),
+('DERMATOLOGÍA'),
+('DERMATOLOGÍA - DERMATOLOGÍA PEDIATRICA'),
+('DOCENCIA EN ENFERMERÍA'),
+('ENDOCRINOLOGÍA'),
+('ENDOCRINOLOGÍA PEDIÁTRICA'),
+('ENFERMEDADES INFECCIOSAS Y TROPICALES'),
+('ENFERMERÍA CARDIOLÓGICA'),
+('ENFERMERÍA EN CUIDADOS CRÍTICOS'),
+('ENFERMERÍA EN EMERGENCIA Y DESASTRES'),
+('ENFERMERÍA EN GASTROENTEROLOGÍA Y PROCEDIMIENTOS ENDOSCÓPICOS'),
+('ENFERMERÍA EN SALUD MENTAL Y PSIQUIATRÍA'),
+('ENFERMERÍA GERIÁTRICA Y GERONTOLÓGICA'),
+('ENFERMERÍA MATERNO INFANTIL'),
+('ENFERMERÍA NEFROLÓGICA Y UROLÓGICA'),
+('ENFERMERÍA ONCOLÓGICA'),
+('ENFERMERÍA PEDIÁTRICA'),
+('EPIDEMIOLOGÍA'),
+('FARMACIA CLÍNICA'),
+('FARMACIA HOSPITALARIA/ FARMACIA CLÍNICA'),
+('GASTROENTEROLOGÍA'),
+('GERIATRÍA'),
+('GINECOLOGÍA Y OBSTETRICIA'),
+('GINECOLOGÍA Y OBSTETRICIA - GINECOLOGÍA ONCOLÓGICA'),
+('HEMATOLOGÍA'),
+('LABORATORIO CLÍNICO Y ANATOMÍA PATOLÓGICA'),
+('MEDICINA DE EMERGENCIA Y DESASTRES'),
+('MEDICINA DE REHABILITACIÓN'),
+('MEDICINA INTENSIVA'),
+('MEDICINA INTERNA'),
+('MEDICINA ONCOLÓGICA'),
+('NEFROLOGÍA'),
+('NEONATOLOGÍA'),
+('NEUMOLOGÍA'),
+('NEUROCIRUGÍA'),
+('NEUROLOGÍA'),
+('ODONTOLOGIA'),
+('ODONTOPEDIATRIA'),
+('OFTALMOLOGÍA'),
+('ONCOLOGÍA QUIRÚRGICA'),
+('ORTODONCIA DENTAL Y MAXILOFACIAL'),
+('ORTODONCIA Y ORTOPEDIA MAXILAR'),
+('OTORRINOLARINGOLOGÍA'),
+('PEDIATRÍA'),
+('PEDIATRÍA - MEDICINA INTENSIVA PEDIÁTRICA'),
+('PEDIATRÍA - NEUMOLOGÍA PEDIÁTRICA'),
+('PEDIATRÍA - NEUROLOGÍA PEDIÁTRICA'),
+('PSIQUIATRÍA'),
+('RADIOLOGÍA'),
+('RADIOTERAPIA'),
+('REUMATOLOGÍA'),
+('SALUD OCUPACIONAL'),
+('TERAPIA DE LENGUAJE'),
+('TERAPIA FÍSICA Y REHABILITACIÓN'),
+('TERAPIA OCUPACIONAL'),
+('TRAUMATOLOGÍA Y ORTOPEDIA'),
+('UROLOGÍA'),
+('ANATOMÍA PATOLÓGICA'),
+('HISTOPATOLOGÍA'),
+('LABORATORIO CLÍNICO'),
+('MEDICINA GENERAL'),
+('PATOLOGÍA CLÍNICA'),
+('RADIODIAGNÓSTICO'),
+('INVESTIGACIÓN'),
+('PSICOLOGÍA DE LAS EMERGENCIAS Y DESASTRES'),
+('PSICOLOGÍA DE LA FAMILIA'),
+('CIRUGÍA GENERAL - CIRUGÍA LAPAROSCOPICA'),
+('CIRUGÍA GENERAL - CIRUGÍA ONCOLÓGICA'),
+('EMERGENCIAS Y DESASTRES *'),
+('CIRUGÍA TORÁCICA Y CARDIOVASCULAR - CIRUGIA TORÁCICA'),
+('ADMINISTRACIÓN DE SALUD'),
+('TRAUMATOLOGÍA Y ORTOPEDIA - CIRUGÍA DE MANO'),
+('CIRUGÍA TORÁCICA Y CARDIOVASCULAR - CIRUGÍA NEUMOLÓGICA'),
+('NUTRICIÓN'),
+('PATOLOGÍA Y LABORATORIO CLÍNICO'),
+('RADIOLOGÍA BUCAL Y MÁXILO FACIAL'),
+('RIESGO OBSTETRICO'),
+('ALTO RIESGO OBSTETRICO, CUIDADOS CRITICOS MATERNO Y EMERGENCIA OBSTETRICAS'),
+('OBSTETRICIA DE ALTO RIESGO'),
+('MONITOREO FETAL Y DIAGNÓSTICO POR IMÁGENES EN OBSTETRICIA'),
+('MONITOREO FETAL'),
+('MONITOREO FETAL Y ECOGRAFÍAS OBSTÉTRICAS'),
+('PROMOCIÓN DE LA SALUD MATERNA CON MENCIÓN EN ESTIMULACIÓN PRENATAL Y PSICOPROFILAXIS OBSTÉTRICA'),
+('GESTIÓN DE CENTRAL DE ESTERILIZACIÓN'),
+('ENFERMERÍA EN SALUD DEL ADOLESCENTE'),
+('PSICOLOGÍA CLÍNICA Y DE LA SALUD'),
+('CIRUGÍA DE TÓRAX ONCOLÓGICA'),
+('CIRUGÍA GENERAL - CIRUGÍA ONCOLÓGICA DE MAMAS, TEJIDOS BLANDOS Y PIEL'),
+('GENÉTICA MÉDICA'),
+('ONCOLOGÍA PEDIÁTRICA'),
+('GENÉTICA'),
+('MEDICINA FAMILIAR'),
+('MEDICINA INTEGRAL Y GESTIÓN EN SALUD'),
+('MEDICINA LEGAL'),
+('MEDICINA OCUPACIONAL Y MEDIO AMBIENTE'),
+('MEDICINA NUCLEAR'),
+('OFTALMOLOGÍA ONCOLÓGICA'),
+('PATOLOGÍA ONCOLÓGICA'),
+('SALUD PÚBLICA'),
+('UROLOGÍA GENERAL Y ONCOLÓGICA'),
+('ENFERMERÍA EN CIRUGÍA CARDIOVASCULAR');
 
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en medicina interna');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en pediatría');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en cirugía general');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en ginecología y obstetricia.');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en anestesiología.');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en medicina de rehabilitación');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en traumatología y ortopedia');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en nefrología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en cardiología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en neurología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en neumología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en gastroenterología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en reumatología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en psiquiatría');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en oftalmología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en urología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en otorrinolaringología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en dermatología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en endocrinología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en hematología clínica');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en medicina de enfermedades infecciosas y tropicales');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en cirugía torácica y cardiovascular');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en cirugía plástica');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en cirugía de cabeza y cuello');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en neurocirugía');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en geriatría');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en oncología');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en cirugía pediátrica');
-INSERT INTO services (service_name) VALUES ('Consulta médica ambulatoria en el servicio subespecializado de neonatología');
-INSERT INTO services (service_name) VALUES ('Consulta médica ambulatoria en el servicio subespecializado de cirugía oncológica');
-INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico de otros servicios sub especializados (especificar).');
-INSERT INTO services (service_name) VALUES ('Teleconsulta por médico');
-INSERT INTO services (service_name) VALUES ('Teleconsulta por médico especialista (especificar)');
-INSERT INTO services (service_name) VALUES ('Teleconsulta médica en servicios subespecializados (especificar)');
-INSERT INTO services (service_name) VALUES ('Atención ambulatoria por psicólogo(a)');
-INSERT INTO services (service_name) VALUES ('Atención ambulatoria por obstetra');
-INSERT INTO services (service_name) VALUES ('Atención ambulatoria por cirujano dentista general con soporte de radiología oral');
-INSERT INTO services (service_name) VALUES ('Atención ambulatoria por cirujano dentista especialista');
-INSERT INTO services (service_name) VALUES ('Atención ambulatoria por nutricionista');
-INSERT INTO services (service_name) VALUES ('Atención ambulatoria por médico en tópico de procedimientos de consulta externa');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de cirugía general');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de ginecología y obstetricia.');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de gastroenterología');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de cardiología');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de neumología');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de neurología');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de dermatología');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de otorrinolaringología');
-INSERT INTO services (service_name) VALUES ('Atención de procedimientos ambulatorios en la especialidad de cirugía plástica');
-INSERT INTO services (service_name) VALUES ('Atención en tópico de inyectables y nebulizaciones');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista de medicina interna');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista de pediatría');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista de gíneco y obstetricia');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista de cirugía general');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista en traumatología y ortopedia');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista en cardiología');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista en neurocirugía');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista en cirugía de tórax y cardiovascular');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista en urología');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista en nefrología');
-INSERT INTO services (service_name) VALUES ('Atención en Sala de Observación de Emergencia');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Vigilancia Intensiva');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Shock Trauma y Reanimación');
-INSERT INTO services (service_name) VALUES ('Atención de parto vaginal por médico especialista en ginecología y obstetricia y obstetra');
-INSERT INTO services (service_name) VALUES ('Atención inmediata del recién nacido por médico subespecialista en neonatología');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en cirugía general');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en ginecología y obstetricia');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en oftalmología');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en otorrinolaringología');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en traumatología y ortopedia');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en urología');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en cirugía torácica y cardiovascular');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en cirugía plástica');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en cirugía de cabeza y cuello');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en neurocirugía');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en cirugía pediátrica');
-INSERT INTO services (service_name) VALUES ('Intervenciones quirúrgicas por médico especialista en cirugía oncológica');
-INSERT INTO services (service_name) VALUES ('Atención en Sala de Recuperación Post-Anestésica');
-INSERT INTO services (service_name) VALUES ('Hospitalización de Medicina Interna');
-INSERT INTO services (service_name) VALUES ('Hospitalización de Cirugía General');
-INSERT INTO services (service_name) VALUES ('Hospitalización de Pediatría');
-INSERT INTO services (service_name) VALUES ('Hospitalización de Ginecología y Obstetricia');
-INSERT INTO services (service_name) VALUES ('Hospitalización de otras especialidades (especificar).');
-INSERT INTO services (service_name) VALUES ('Monitoreo de Gestantes con complicaciones');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Cuidados Intensivos General');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Cuidados Intensivos Neonatal');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Cuidados Intermedios Neonatal');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Cuidados Intensivos Pediátrico');
-INSERT INTO services (service_name) VALUES ('Procedimientos de Laboratorio Clínico Tipo III-1');
-INSERT INTO services (service_name) VALUES ('Procedimientos de Anatomía Patológica tipo III-1');
-INSERT INTO services (service_name) VALUES ('Radiología Convencional');
-INSERT INTO services (service_name) VALUES ('Radiología Intervencionista');
-INSERT INTO services (service_name) VALUES ('Ecografía general y Doppler');
-INSERT INTO services (service_name) VALUES ('Mamografía');
-INSERT INTO services (service_name) VALUES ('Tomografía Computada');
-INSERT INTO services (service_name) VALUES ('Atención de rehabilitación de Discapacidades Leves y Moderadas mediante terapia física');
-INSERT INTO services (service_name) VALUES ('Atención de rehabilitación de Discapacidades Severas mediante terapia física');
-INSERT INTO services (service_name) VALUES ('Atención de rehabilitación mediante terapia ocupacional');
-INSERT INTO services (service_name) VALUES ('Atención de rehabilitación mediante terapia de lenguaje');
-INSERT INTO services (service_name) VALUES ('Atención de rehabilitación mediante terapia de aprendizaje');
-INSERT INTO services (service_name) VALUES ('Evaluación nutricional en hospitalización');
-INSERT INTO services (service_name) VALUES ('Soporte nutricional con regímenes dietéticos');
-INSERT INTO services (service_name) VALUES ('Soporte nutricional con fórmulas lácteas');
-INSERT INTO services (service_name) VALUES ('Soporte nutricional con fórmulas enterales');
-INSERT INTO services (service_name) VALUES ('Provisión de unidades de sangre y hemoderivados');
-INSERT INTO services (service_name) VALUES ('Abastecimiento de unidades de sangre y hemoderivados');
-INSERT INTO services (service_name) VALUES ('Preparación de unidades de sangre y hemoderivados');
-INSERT INTO services (service_name) VALUES ('Dispensación de medicamentos, dispositivos médicos y productos sanitarios');
-INSERT INTO services (service_name) VALUES ('Atención en farmacia clínica');
-INSERT INTO services (service_name) VALUES ('Atención en farmacotécnia');
-INSERT INTO services (service_name) VALUES ('Desinfección de alto nivel en Central de Esterilización');
-INSERT INTO services (service_name) VALUES ('Esterilización por medios físicos en Central de Esterilización');
-INSERT INTO services (service_name) VALUES ('Esterilización por medios químicos en Central de Esterilización');
-INSERT INTO services (service_name) VALUES ('Hemodiálisis');
-INSERT INTO services (service_name) VALUES ('Diálisis Peritoneal en III Nivel');
-INSERT INTO services (service_name) VALUES ('Atención con radioterapia externa (teleterapia)');
-INSERT INTO services (service_name) VALUES ('Atención con quimioterapia ambulatoria parenteral.');
-INSERT INTO services (service_name) VALUES ('Intervenciones educativas y comunicacionales');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico especialista');
-INSERT INTO services (service_name) VALUES ('Atención en Ambiente de Observación de Emergencia');
-INSERT INTO services (service_name) VALUES ('Atención en Sala de Internamiento');
-INSERT INTO services (service_name) VALUES ('Atención Observación del Recién Nacido y Monitoreo del Recién Nacido con patología');
-INSERT INTO services (service_name) VALUES ('Atención del paciente post operado en el Área de Observación de Cirugía Ambulatoria');
-INSERT INTO services (service_name) VALUES ('Toma de muestras de tejidos o líquidos corporales');
-INSERT INTO services (service_name) VALUES ('Pruebas rápidas de laboratorio clínico y toma de muestras biológicas');
-INSERT INTO services (service_name) VALUES ('Ecografía general');
-INSERT INTO services (service_name) VALUES ('Radiología Convencional Simple');
-INSERT INTO services (service_name) VALUES ('Expendio de medicamentos dispositivos médicos y productos sanitarios');
-INSERT INTO services (service_name) VALUES ('Atención de urgencias y emergencias por médico de otras especialidades (especificar)');
-INSERT INTO services (service_name) VALUES ('Hospitalización de Adultos');
-INSERT INTO services (service_name) VALUES ('Atención en la Unidad de Cuidados Intermedios General');
-INSERT INTO services (service_name) VALUES ('Procedimientos de Laboratorio Clínico de establecimiento de salud de atención especializada (II-E, III-E, III-2)');
-INSERT INTO services (service_name) VALUES ('Desinfección de nivel intermedio en Central de Esterilización');
-INSERT INTO services (service_name) VALUES ('Atención de parto vaginal por médico general y obstetra');
-INSERT INTO services (service_name) VALUES ('Desinfección y esterilización');
-INSERT INTO services (service_name) VALUES ('Teleconsulta (DL 1490)');
+INSERT INTO services (service_name) VALUES ('Consulta ambulatoria por médico especialista en medicina interna'),
+('Consulta ambulatoria por médico especialista en pediatría'),
+('Consulta ambulatoria por médico especialista en cirugía general'),
+('Consulta ambulatoria por médico especialista en ginecología y obstetricia.'),
+('Consulta ambulatoria por médico especialista en anestesiología.'),
+('Consulta ambulatoria por médico especialista en medicina de rehabilitación'),
+('Consulta ambulatoria por médico especialista en traumatología y ortopedia'),
+('Consulta ambulatoria por médico especialista en nefrología'),
+('Consulta ambulatoria por médico especialista en cardiología'),
+('Consulta ambulatoria por médico especialista en neurología'),
+('Consulta ambulatoria por médico especialista en neumología'),
+('Consulta ambulatoria por médico especialista en gastroenterología'),
+('Consulta ambulatoria por médico especialista en reumatología'),
+('Consulta ambulatoria por médico especialista en psiquiatría'),
+('Consulta ambulatoria por médico especialista en oftalmología'),
+('Consulta ambulatoria por médico especialista en urología'),
+('Consulta ambulatoria por médico especialista en otorrinolaringología'),
+('Consulta ambulatoria por médico especialista en dermatología'),
+('Consulta ambulatoria por médico especialista en endocrinología'),
+('Consulta ambulatoria por médico especialista en hematología clínica'),
+('Consulta ambulatoria por médico especialista en medicina de enfermedades infecciosas y tropicales'),
+('Consulta ambulatoria por médico especialista en cirugía torácica y cardiovascular'),
+('Consulta ambulatoria por médico especialista en cirugía plástica'),
+('Consulta ambulatoria por médico especialista en cirugía de cabeza y cuello'),
+('Consulta ambulatoria por médico especialista en neurocirugía'),
+('Consulta ambulatoria por médico especialista en geriatría'),
+('Consulta ambulatoria por médico especialista en oncología'),
+('Consulta ambulatoria por médico especialista en cirugía pediátrica'),
+('Consulta médica ambulatoria en el servicio subespecializado de neonatología'),
+('Consulta médica ambulatoria en el servicio subespecializado de cirugía oncológica'),
+('Consulta ambulatoria por médico de otros servicios sub especializados (especificar).'),
+('Teleconsulta por médico'),
+('Teleconsulta por médico especialista (especificar)'),
+('Teleconsulta médica en servicios subespecializados (especificar)'),
+('Atención ambulatoria por psicólogo(a)'),
+('Atención ambulatoria por obstetra'),
+('Atención ambulatoria por cirujano dentista general con soporte de radiología oral'),
+('Atención ambulatoria por cirujano dentista especialista'),
+('Atención ambulatoria por nutricionista'),
+('Atención ambulatoria por médico en tópico de procedimientos de consulta externa'),
+('Atención de procedimientos ambulatorios en la especialidad de cirugía general'),
+('Atención de procedimientos ambulatorios en la especialidad de ginecología y obstetricia.'),
+('Atención de procedimientos ambulatorios en la especialidad de gastroenterología'),
+('Atención de procedimientos ambulatorios en la especialidad de cardiología'),
+('Atención de procedimientos ambulatorios en la especialidad de neumología'),
+('Atención de procedimientos ambulatorios en la especialidad de neurología'),
+('Atención de procedimientos ambulatorios en la especialidad de dermatología'),
+('Atención de procedimientos ambulatorios en la especialidad de otorrinolaringología'),
+('Atención de procedimientos ambulatorios en la especialidad de cirugía plástica'),
+('Atención en tópico de inyectables y nebulizaciones'),
+('Atención de urgencias y emergencias por médico especialista de medicina interna'),
+('Atención de urgencias y emergencias por médico especialista de pediatría'),
+('Atención de urgencias y emergencias por médico especialista de gíneco y obstetricia'),
+('Atención de urgencias y emergencias por médico especialista de cirugía general'),
+('Atención de urgencias y emergencias por médico especialista en traumatología y ortopedia'),
+('Atención de urgencias y emergencias por médico especialista en cardiología'),
+('Atención de urgencias y emergencias por médico especialista en neurocirugía'),
+('Atención de urgencias y emergencias por médico especialista en cirugía de tórax y cardiovascular'),
+('Atención de urgencias y emergencias por médico especialista en urología'),
+('Atención de urgencias y emergencias por médico especialista en nefrología'),
+('Atención en Sala de Observación de Emergencia'),
+('Atención en la Unidad de Vigilancia Intensiva'),
+('Atención en la Unidad de Shock Trauma y Reanimación'),
+('Atención de parto vaginal por médico especialista en ginecología y obstetricia y obstetra'),
+('Atención inmediata del recién nacido por médico subespecialista en neonatología'),
+('Intervenciones quirúrgicas por médico especialista en cirugía general'),
+('Intervenciones quirúrgicas por médico especialista en ginecología y obstetricia'),
+('Intervenciones quirúrgicas por médico especialista en oftalmología'),
+('Intervenciones quirúrgicas por médico especialista en otorrinolaringología'),
+('Intervenciones quirúrgicas por médico especialista en traumatología y ortopedia'),
+('Intervenciones quirúrgicas por médico especialista en urología'),
+('Intervenciones quirúrgicas por médico especialista en cirugía torácica y cardiovascular'),
+('Intervenciones quirúrgicas por médico especialista en cirugía plástica'),
+('Intervenciones quirúrgicas por médico especialista en cirugía de cabeza y cuello'),
+('Intervenciones quirúrgicas por médico especialista en neurocirugía'),
+('Intervenciones quirúrgicas por médico especialista en cirugía pediátrica'),
+('Intervenciones quirúrgicas por médico especialista en cirugía oncológica'),
+('Atención en Sala de Recuperación Post-Anestésica'),
+('Hospitalización de Medicina Interna'),
+('Hospitalización de Cirugía General'),
+('Hospitalización de Pediatría'),
+('Hospitalización de Ginecología y Obstetricia'),
+('Hospitalización de otras especialidades (especificar).'),
+('Monitoreo de Gestantes con complicaciones'),
+('Atención en la Unidad de Cuidados Intensivos General'),
+('Atención en la Unidad de Cuidados Intensivos Neonatal'),
+('Atención en la Unidad de Cuidados Intermedios Neonatal'),
+('Atención en la Unidad de Cuidados Intensivos Pediátrico'),
+('Procedimientos de Laboratorio Clínico Tipo III-1'),
+('Procedimientos de Anatomía Patológica tipo III-1'),
+('Radiología Convencional'),
+('Radiología Intervencionista'),
+('Ecografía general y Doppler'),
+('Mamografía'),
+('Tomografía Computada'),
+('Atención de rehabilitación de Discapacidades Leves y Moderadas mediante terapia física'),
+('Atención de rehabilitación de Discapacidades Severas mediante terapia física'),
+('Atención de rehabilitación mediante terapia ocupacional'),
+('Atención de rehabilitación mediante terapia de lenguaje'),
+('Atención de rehabilitación mediante terapia de aprendizaje'),
+('Evaluación nutricional en hospitalización'),
+('Soporte nutricional con regímenes dietéticos'),
+('Soporte nutricional con fórmulas lácteas'),
+('Soporte nutricional con fórmulas enterales'),
+('Provisión de unidades de sangre y hemoderivados'),
+('Abastecimiento de unidades de sangre y hemoderivados'),
+('Preparación de unidades de sangre y hemoderivados'),
+('Dispensación de medicamentos, dispositivos médicos y productos sanitarios'),
+('Atención en farmacia clínica'),
+('Atención en farmacotécnia'),
+('Desinfección de alto nivel en Central de Esterilización'),
+('Esterilización por medios físicos en Central de Esterilización'),
+('Esterilización por medios químicos en Central de Esterilización'),
+('Hemodiálisis'),
+('Diálisis Peritoneal en III Nivel'),
+('Atención con radioterapia externa (teleterapia)'),
+('Atención con quimioterapia ambulatoria parenteral.'),
+('Intervenciones educativas y comunicacionales'),
+('Atención de urgencias y emergencias por médico especialista'),
+('Atención en Ambiente de Observación de Emergencia'),
+('Atención en Sala de Internamiento'),
+('Atención Observación del Recién Nacido y Monitoreo del Recién Nacido con patología'),
+('Atención del paciente post operado en el Área de Observación de Cirugía Ambulatoria'),
+('Toma de muestras de tejidos o líquidos corporales'),
+('Pruebas rápidas de laboratorio clínico y toma de muestras biológicas'),
+('Ecografía general'),
+('Radiología Convencional Simple'),
+('Expendio de medicamentos dispositivos médicos y productos sanitarios'),
+('Atención de urgencias y emergencias por médico de otras especialidades (especificar)'),
+('Hospitalización de Adultos'),
+('Atención en la Unidad de Cuidados Intermedios General'),
+('Procedimientos de Laboratorio Clínico de establecimiento de salud de atención especializada (II-E, III-E, III-2)'),
+('Desinfección de nivel intermedio en Central de Esterilización'),
+('Atención de parto vaginal por médico general y obstetra'),
+('Desinfección y esterilización'),
+('Teleconsulta (DL 1490)');
 
 INSERT INTO destiny_services (destiny_service_name, status) VALUES ('UPSS - CONSULTA EXTERNA', 1);
 INSERT INTO destiny_services (destiny_service_name, status) VALUES ('UPSS - HOSPITALIZACIÓN', 1);
@@ -8412,43 +8412,42 @@ INSERT INTO destiny_services (destiny_service_name, status) VALUES ('ACTIVIDAD -
 INSERT INTO destiny_services (destiny_service_name, status) VALUES ('ACTIVIDAD - ATENCIÓN DE LA GESTANTE EN EL PERIODO DE PARTO', 1);
 INSERT INTO destiny_services (destiny_service_name, status) VALUES ('UPSS - MEDICINA NUCLEAR', 1);
 
-INSERT INTO symptoms (description, required_attention) VALUES ('Fiebre mayor a 7 días sin causa conocida', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Dolor de cabeza persistente y progresivo', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Dolores óseos moderados a severo', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Petequias, moretones o sangrado anormal', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Palidez conjuntival y/o palmar severa', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Leucocoria, Estrabismo , Aniridia, Heterocromía, Hifema, Proptosis', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Ganglios mayores 2.5cm, no dolorosos, duros, con más de 4 semanas de evolución y sin signos de inflamación', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Convulsión sin fiebre, ni enfermedad neurológica de base', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Debilidad unilateral', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Cambios severos en el estado de conciencia o mental (comportamiento, confusión)', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Pérdida de equilibrio al caminar o aumento de base de sustentación', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Dificultad para hablar', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Inicio súbito de visión borrosa, doble o ceguera', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Masa palpable o incremento de volumen en alguna región del cuerpo sin signos de inflamación', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Hepatomegalia y/o esplenomegalia', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Dolor y distensión abdominal, pérdida de peso, rechazo a la alimentación.', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Dolor pélvico, estreñimiento y trastornos genitourinarios, dolor testicular', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Vomitos', 1);
-INSERT INTO symptoms (description, required_attention) VALUES ('Pérdida de apetito, pérdida de peso o cansancio en los últimos 3 meses', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Sudoración nocturna importante, sin causa aparente.', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Palidez palmar o conjuntival leve.', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Linfadenopatía dolorosa o con evolución < 4 semanas o con diámetro ≤ 2,5 cm o consistencia no dura.', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Aumento de volumen en cualquier región del cuerpo con signos de inflamación.', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Otorrea a repetición.', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Eritema perianal persistente', 0);
-INSERT INTO symptoms (description, required_attention) VALUES ('Dermatitis seborreica persistente', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s1', 'Fiebre mayor a 7 días sin causa conocida', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s2', 'Dolor de cabeza persistente y progresivo', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s3', 'Dolores óseos moderados a severo', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s4', 'Petequias, moretones o sangrado anormal', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s5', 'Palidez conjuntival y/o palmar severa', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s6', 'Leucocoria, Estrabismo , Aniridia, Heterocromía, Hifema, Proptosis', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s7', 'Ganglios mayores 2.5cm, no dolorosos, duros, con más de 4 semanas de evolución y sin signos de inflamación', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s8', 'Convulsión sin fiebre, ni enfermedad neurológica de base', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s9', 'Debilidad unilateral', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s10', 'Pérdida de equilibrio al caminar o aumento de base de sustentación', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s11', 'Dificultad para hablar', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s12', 'Inicio súbito de visión borrosa, doble o ceguera', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s13', 'Masa palpable o incremento de volumen en alguna región del cuerpo sin signos de inflamación', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s14', 'Hepatomegalia y/o esplenomegalia', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s15', 'Dolor y distensión abdominal, pérdida de peso, rechazo a la alimentación.', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s16', 'Dolor pélvico, estreñimiento y trastornos genitourinarios, dolor testicular', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s17', 'Vomitos', 1);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s18', 'Pérdida de apetito, pérdida de peso o cansancio en los últimos 3 meses', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s19', 'Sudoración nocturna importante, sin causa aparente.', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s20', 'Palidez palmar o conjuntival leve.', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s21', 'Linfadenopatía dolorosa o con evolución < 4 semanas o con diámetro ≤ 2,5 cm o consistencia no dura.', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s22', 'Aumento de volumen en cualquier región del cuerpo con signos de inflamación.', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s23', 'Otorrea a repetición.', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s24', 'Eritema perianal persistente', 0);
+INSERT INTO symptoms (code, description, required_attention) VALUES ('s25', 'Dermatitis seborreica persistente', 0);
 
-INSERT INTO diseases (name) VALUES ('Leucemia');
-INSERT INTO diseases (name) VALUES ('Linfoma');
-INSERT INTO diseases (name) VALUES ('Tumores del Sistema Nervioso Central');
-INSERT INTO diseases (name) VALUES ('Neuroblastoma');
-INSERT INTO diseases (name) VALUES ('Tumores Óseos');
-INSERT INTO diseases (name) VALUES ('Sarcomas de Partes blandas');
-INSERT INTO diseases (name) VALUES ('Retinoblastomas');
-INSERT INTO diseases (name) VALUES ('Tumor de células Germinales');
-INSERT INTO diseases (name) VALUES ('Tumor Hepático');
-INSERT INTO diseases (name) VALUES ('Histiocitosis de células de Langerhans');
+INSERT INTO diseases (code, name) VALUES ('e1', 'Leucemia');
+INSERT INTO diseases (code, name) VALUES ('e2', 'Linfoma');
+INSERT INTO diseases (code, name) VALUES ('e3', 'Tumores del Sistema Nervioso Central');
+INSERT INTO diseases (code, name) VALUES ('e4', 'Neuroblastoma');
+INSERT INTO diseases (code, name) VALUES ('e5', 'Tumores Óseos');
+INSERT INTO diseases (code, name) VALUES ('e6', 'Sarcomas de Partes blandas');
+INSERT INTO diseases (code, name) VALUES ('e7', 'Retinoblastomas');
+INSERT INTO diseases (code, name) VALUES ('e8', 'Tumor de células Germinales');
+INSERT INTO diseases (code, name) VALUES ('e9', 'Tumor Hepático');
+INSERT INTO diseases (code, name) VALUES ('e10', 'Histiocitosis de células de Langerhans');
 
 INSERT INTO antecedent_types (name) VALUES ('FAMILIAR');
 INSERT INTO antecedent_types (name) VALUES ('EXAMENES');

@@ -18,7 +18,7 @@ const User = sequelize.define(
             unique: true
         },
         password: {
-            type: DataTypes.STRING(16),
+            type: DataTypes.STRING,
             allowNull: false
         },
         documentNumber: {
