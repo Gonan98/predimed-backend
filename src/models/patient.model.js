@@ -30,7 +30,7 @@ const Patient = sequelize.define(
             allowNull: false
         },
 
-        //FK : ubigeoId
+        //FK : ubigeoId: String
     },
     {
         underscored: true,
