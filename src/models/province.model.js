@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../db';
 
 const Province = sequelize.define(
-    'UbigeoPeruProvince',
+    'ubigeoPeruProvince',
     {
         id: {
             type: DataTypes.STRING(4),

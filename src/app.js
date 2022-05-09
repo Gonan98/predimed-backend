@@ -9,7 +9,7 @@ import historyRouter from './routes/history.routes';
 import antecedentRouter from './routes/antecedent.routes';
 import symptomRouter from './routes/symptom.routes';
 import diseaseRouter from './routes/disease.routes';
-import aiRouter from './routes/ai.routes';
+import diagnosticRouter from './routes/diagnostic.routes';
 import ubigeoRouter from './routes/ubigeo.routes';
 import establishmentRouter from './routes/establishment.routes';
 
@@ -29,7 +29,7 @@ app.use('/api/v2/antecedents', antecedentRouter);
 app.use('/api/v2/symptoms', symptomRouter);
 app.use('/api/v2/ubigeo', ubigeoRouter);
 app.use('/api/v2/establishments', establishmentRouter);
-app.use('/api/v2/nn', aiRouter);
+app.use('/api/v2/diagnostic', diagnosticRouter);
 
 app.get("/", (req, res) => {
     res.send("Hola!");

@@ -53,3 +53,14 @@ export const getDistrictsByProvinceId = async (req, res) => {
         res.status(500).json(err);
     }
 }
+
+export const getDistrictById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const district = await District.findByPk(id, { include: [Province, Department] });
+        res.status(200).json(district);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
