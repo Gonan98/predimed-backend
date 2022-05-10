@@ -1,9 +1,14 @@
 import { Router } from "express";
-import { addHistory, getHistoriesByPatient } from "../controllers/history.controller";
+import {
+  addHistory,
+  getHistoriesByPatient,
+  getAllHistories,
+} from "../controllers/history.controller";
 
 const router = Router();
 
-router.post('/', addHistory);
-router.get('/', getHistoriesByPatient);
+router.post("/", addHistory);
+router.get("/", getAllHistories);
+router.get("/:patient", getHistoriesByPatient);
 
 export default router;
