@@ -7,11 +7,11 @@ export const addReferred = async (req, res) => {
     userId,
     sourceEstablishmentCode,
     destinyEstablishmentCode,
-    DestinyServiceCode,
+    destinyServiceCode,
     serviceCode,
     specialtyCode,
     patientId,
-    DiseaseCode,
+    diseaseCode,
   } = req.body;
 
   try {
@@ -21,11 +21,11 @@ export const addReferred = async (req, res) => {
       userId,
       sourceEstablishmentCode,
       destinyEstablishmentCode,
-      DestinyServiceCode,
+      destinyServiceCode,
       serviceCode,
       specialtyCode,
       patientId,
-      DiseaseCode,
+      diseaseCode,
     });
 
     res.status(201).json({
