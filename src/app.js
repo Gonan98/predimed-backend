@@ -13,6 +13,8 @@ import diagnosticRouter from "./routes/diagnostic.routes";
 import ubigeoRouter from "./routes/ubigeo.routes";
 import establishmentRouter from "./routes/establishment.routes";
 import referredRouter from "./routes/referred.routes";
+import establishmentSpecialtiesRouter from "./routes/establishment-specialties.routes";
+import establishmentDestinyServicesRouter from "./routes/establishment-destiny-services.routes";
 
 const app = express();
 
@@ -32,6 +34,11 @@ app.use("/api/v2/symptoms", symptomRouter);
 app.use("/api/v2/ubigeo", ubigeoRouter);
 app.use("/api/v2/establishments", establishmentRouter);
 app.use("/api/v2/diagnostic", diagnosticRouter);
+app.use("/api/v2/establishment-specialties", establishmentSpecialtiesRouter);
+app.use(
+  "/api/v2/establishment-destiny-services",
+  establishmentDestinyServicesRouter
+);
 
 app.get("/", (req, res) => {
   res.send("Hola!");
