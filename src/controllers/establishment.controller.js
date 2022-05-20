@@ -1,21 +1,28 @@
 import Establishment from "../models/establishment.model"
 
-export const getEstablishments = async (req, res) => {
+export const getEstablishmentById = async (req, res) => {
+    const { id } = req.params;
 
-    const qUbigeo = req.query.ubigeo_id;
-    console.log(qUbigeo);
-    if (!qUbigeo) return res.status(400).json({ message: 'ubigeo_id query is missing' })
+    try {
+        const establishment = await Establishment.findByPk(id);
+        res.status(200).json(establishment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
 
+export const getDestinyEstablishments = async (req, res) => {
     try {
         const establishments = await Establishment.findAll({
             where: {
-                ubigeoId: qUbigeo
-            },
-            order: ['name']
+                code: {
+                    [Op.in]: [5987, 6213, 6210, 23159]
+                }
+            }
         });
 
-        res.status(200).json(establishments)
-    } catch (err) {
+        res.status(200).json(establishments);
+    } catch (error) {
         res.status(500).json(err)
     }
 }

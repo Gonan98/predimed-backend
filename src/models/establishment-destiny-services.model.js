@@ -1,24 +1,29 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db";
+import DestinyService from "./destiny-service.model";
+import Establishment from "./establishment.model";
 
-const EstablishmentDestinyServices = sequelize.define(
-  "EstablishmentDestinyServices",
+const EstablishmentDestinyService = sequelize.define(
+  'establishmentDestinyService',
   {
     establishmentCode: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
+      references: {
+        model: Establishment,
+        key: 'code'
+      }
     },
     destinyServiceCode: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-    },
+      references: {
+        model: DestinyService,
+        key: 'code'
+      }
+    }
   },
   {
-    underscored: true,
-    timestamps: true,
+    underscored: true
   }
 );
 
-export default EstablishmentDestinyServices;
+export default EstablishmentDestinyService;

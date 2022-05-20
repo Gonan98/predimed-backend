@@ -5,8 +5,7 @@ const DestinyService = sequelize.define(
     'DestinyService',
     {
         code: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
+            type: DataTypes.STRING,
             primaryKey: true
         },
         destinyServiceName: {
