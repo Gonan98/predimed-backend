@@ -3,8 +3,6 @@ import Referred from "../models/referred.model";
 export const addReferred = async (req, res) => {
   const {
     reason,
-    referenceDate,
-    userId,
     sourceEstablishmentCode,
     destinyEstablishmentCode,
     destinyServiceCode,
@@ -17,8 +15,7 @@ export const addReferred = async (req, res) => {
   try {
     await Referred.create({
       reason,
-      referenceDate,
-      userId,
+      userId: req.user.id,
       sourceEstablishmentCode,
       destinyEstablishmentCode,
       destinyServiceCode,
@@ -47,15 +44,12 @@ export const getAllReferreds = async (req, res) => {
 };
 
 export const getReferredsByPatient = async (req, res) => {
-  const qPatientId = req.params.patient;
-  if (!qPatientId)
-    return res
-      .status(400)
-      .json({ message: "Query parameter <patientId> is missing" });
+
+  const { patientId } = req.params;
 
   try {
     const referreds = await Referred.findAll({
-      where: { patientId: qPatientId },
+      where: { patientId, userId: req.user.id },
       order: [["user_id", "DESC"]],
     });
 

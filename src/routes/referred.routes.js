@@ -9,6 +9,6 @@ const router = Router();
 
 router.post("/", addReferred);
 router.get("/", getAllReferreds);
-router.get("/:patient", getReferredsByPatient);
+router.get("/patient/:patientId", getReferredsByPatient);
 
 export default router;

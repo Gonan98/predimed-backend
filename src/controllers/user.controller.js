@@ -2,6 +2,7 @@ import generator from 'generate-password';
 import Cryptojs from 'crypto-js';
 import User from '../models/user.model';
 import config from '../config';
+import Referred from '../models/referred.model';
 
 export const createUser = async (req, res) => {
     const { 
@@ -12,10 +13,11 @@ export const createUser = async (req, res) => {
         gender,
         profession,
         employeeStatus,
-        workingCondition
+        workingCondition,
+        establishmentCode
     } = req.body;
 
-    if (!firstName || !lastName || !documentMedic || !documentNumber || !gender || !profession || !employeeStatus || !workingCondition) {
+    if (!firstName || !lastName || !documentMedic || !documentNumber || !gender || !profession || !employeeStatus || !workingCondition || !establishmentCode) {
         return res.status(400).json({
             message: 'Some data is missing'
         })
@@ -45,6 +47,7 @@ export const createUser = async (req, res) => {
             college: 'COLEGIO MEDICO DEL PERU',
             employeeStatus,
             workingCondition,
+            establishmentCode,
             username,
             password: hashedPassword
         });
@@ -131,7 +134,8 @@ export const updateUser = async (req, res) => {
         profession,
         college,
         employeeStatus,
-        workingCondition
+        workingCondition,
+        establishmetCode
     } = req.body;
 
     try {
@@ -145,7 +149,8 @@ export const updateUser = async (req, res) => {
                 profession,
                 college,
                 employeeStatus,
-                workingCondition
+                workingCondition,
+                establishmetCode
             },
             {
                 where: {
@@ -179,3 +184,16 @@ export const deleteUser = async (req, res) => {
         });
     }
 };
+
+export const getReferredByUser = async (req, res) => {
+    try {
+        const referrals = await Referred.findAll({
+            where: {
+                userId: req.user.id
+            }
+        });
+        res.status(200).json(referrals);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
