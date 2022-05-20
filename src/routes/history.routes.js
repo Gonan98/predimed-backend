@@ -9,6 +9,6 @@ const router = Router();
 
 router.post("/", addHistory);
 router.get("/", getAllHistories);
-router.get("/:patient", getHistoriesByPatient);
+router.get("/patient/:patientId", getHistoriesByPatient);
 
 export default router;

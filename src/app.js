@@ -35,11 +35,11 @@ app.use("/api/v2/symptoms", symptomRouter);
 app.use("/api/v2/ubigeo", ubigeoRouter);
 app.use("/api/v2/establishments", establishmentRouter);
 app.use("/api/v2/diagnostic", diagnosticRouter);
-app.use("/api/v2/establishment-specialties", establishmentSpecialtiesRouter);
-app.use(
-  "/api/v2/establishment-destiny-services",
-  establishmentDestinyServicesRouter
-);
+// app.use("/api/v2/establishment-specialties", establishmentSpecialtiesRouter);
+// app.use(
+//   "/api/v2/establishment-destiny-services",
+//   establishmentDestinyServicesRouter
+// );
 app.use("/api/v2/services", serviceRouter);
 
 app.get("/", (req, res) => {

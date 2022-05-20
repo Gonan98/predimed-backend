@@ -35,15 +35,11 @@ export const addHistory = async (req, res) => {
 };
 
 export const getHistoriesByPatient = async (req, res) => {
-  const qPatientId = req.params.patient;
-  if (!qPatientId)
-    return res
-      .status(400)
-      .json({ message: "Query parameter <patientId> is missing" });
+  const { patientId } = req.params;
 
   try {
     const histories = await History.findAll({
-      where: { patientId: qPatientId },
+      where: { patientId },
       order: [["created_at", "DESC"]],
     });
 
