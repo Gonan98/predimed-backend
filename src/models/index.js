@@ -4,6 +4,9 @@ import Department from "./department.model";
 import DestinyService from "./destiny-service.model";
 import Disease from "./disease.model";
 import District from "./district.model";
+import EstablishmentDestinyService from "./establishment-destiny-services.model";
+import EstablishmentService from "./establishment-services.model";
+import EstablishmentSpecialty from "./establishment-specialties.model";
 import Establishment from "./establishment.model";
 import History from "./history.model";
 import Incidence from "./incidence.model";
@@ -23,32 +26,22 @@ Referred.belongsTo(User);
 User.hasMany(NoReferred);
 NoReferred.belongsTo(User);
 
-Establishment.belongsToMany(Specialty, { through: 'establishtment_specialties' });
-Specialty.belongsToMany(Establishment, { through: 'establishtment_specialties' });
-Establishment.belongsToMany(Service, { through: 'establishment_services' });
-Service.belongsToMany(Establishment, { through: 'establishment_services' });
-Establishment.belongsToMany(DestinyService, { through: 'establishment_destiny_services' });
-DestinyService.belongsToMany(Establishment, { through: 'establishment_destiny_services' });
+Establishment.belongsToMany(Specialty, { through: EstablishmentSpecialty });
+Specialty.belongsToMany(Establishment, { through: EstablishmentSpecialty });
+Establishment.belongsToMany(Service, { through: EstablishmentService });
+Service.belongsToMany(Establishment, { through: EstablishmentService });
+Establishment.belongsToMany(DestinyService, { through: EstablishmentDestinyService });
+DestinyService.belongsToMany(Establishment, { through: EstablishmentDestinyService });
 Establishment.hasMany(User);
 User.belongsTo(Establishment);
-Establishment.hasMany(Referred, {
-    foreignKey: {
-        name: 'sourceEstablishmentCode',
-        allowNull: false
-    }
-});
+Establishment.hasMany(Referred);
 Referred.belongsTo(Establishment, {
     foreignKey: {
         name: 'sourceEstablishmentCode',
         allowNull: false
     }
 })
-Establishment.hasMany(Referred, {
-    foreignKey: {
-        name: 'destinyEstablishmentCode',
-        allowNull: false
-    }
-});
+Establishment.hasMany(Referred);
 Referred.belongsTo(Establishment, {
     foreignKey: {
         name: 'destinyEstablishmentCode',
@@ -65,24 +58,14 @@ Referred.belongsTo(Service);
 Specialty.hasMany(Referred);
 Referred.belongsTo(Specialty);
 
-Department.hasMany(Province, {
-    foreignKey: {
-        name: 'departmentId',
-        allowNull: false
-    }
-});
+Department.hasMany(Province);
 Province.belongsTo(Department, {
     foreignKey: {
         name: 'departmentId',
         allowNull: false
     }
 });
-Department.hasMany(District, {
-    foreignKey: {
-        name: 'departmentId',
-        allowNull: false
-    }
-});
+Department.hasMany(District);
 District.belongsTo(Department, {
     foreignKey: {
         name: 'departmentId',
@@ -90,12 +73,7 @@ District.belongsTo(Department, {
     }
 });
 
-Province.hasMany(District, {
-    foreignKey: {
-        name: 'provinceId',
-        allowNull: false
-    }
-});
+Province.hasMany(District);
 District.belongsTo(Province, {
     foreignKey: {
         name: 'provinceId',
@@ -103,24 +81,14 @@ District.belongsTo(Province, {
     }
 });
 
-District.hasMany(Establishment, {
-    foreignKey: {
-        name: 'ubigeoId',
-        allowNull: false
-    }
-});
+District.hasMany(Establishment);
 Establishment.belongsTo(District, {
     foreignKey: {
         name: 'ubigeoId',
         allowNull: false
     }
 });
-District.hasMany(Patient, {
-    foreignKey: {
-        name: 'ubigeoId',
-        allowNull: false
-    }
-});
+District.hasMany(Patient);
 Patient.belongsTo(District, {
     foreignKey: {
         name: 'ubigeoId',
@@ -132,32 +100,20 @@ Patient.hasMany(Referred);
 Referred.belongsTo(Patient);
 Patient.hasMany(NoReferred);
 NoReferred.belongsTo(Patient);
-Patient.hasMany(History, {
-    foreignKey: {
-        allowNull: false
-    }
-});
+Patient.hasMany(History);
 History.belongsTo(Patient, {
     foreignKey: {
         allowNull: false
     }
 });
-Patient.hasMany(Antecedent, {
-    foreignKey: {
-        allowNull: false
-    }
-});
+Patient.hasMany(Antecedent);
 Antecedent.belongsTo(Patient, {
     foreignKey: {
         allowNull: false
     }
 });
 
-AntecedentType.hasMany(Antecedent, {
-    foreignKey: {
-        allowNull: false
-    }
-});
+AntecedentType.hasMany(Antecedent);
 Antecedent.belongsTo(AntecedentType, {
     foreignKey: {
         allowNull: false

@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getEstablishments } from "../controllers/establishment.controller";
+import { getDestinyEstablishments, getEstablishmentById } from "../controllers/establishment.controller";
 
 const router = Router();
 
-router.get('/', getEstablishments);
+router.get('/:id', getEstablishmentById);
+router.get('/destiny', getDestinyEstablishments);
 
 export default router;

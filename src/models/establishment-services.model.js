@@ -1,10 +1,10 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db";
 import Establishment from "./establishment.model";
-import Specialty from "./specialty.model";
+import Service from "./service.model";
 
-const EstablishmentSpecialty = sequelize.define(
-  "establishmentSpecialty",
+const EstablishmentService = sequelize.define(
+  'establishmentService',
   {
     establishmentCode: {
       type: DataTypes.INTEGER,
@@ -13,17 +13,15 @@ const EstablishmentSpecialty = sequelize.define(
         key: "code",
       },
     },
-    specialtyCode: {
+    serviceCode: {
       type: DataTypes.INTEGER,
       references: {
-        model: Specialty,
+        model: Service,
         key: "code",
       },
     },
   },
-  {
-    underscored: true
-  }
+  { underscored: true }
 );
 
-export default EstablishmentSpecialty;
+export default EstablishmentService;

@@ -1,5 +1,7 @@
 import Department from "../models/department.model"
 import District from "../models/district.model";
+import Establishment from "../models/establishment.model";
+import Patient from "../models/patient.model";
 import Province from "../models/province.model";
 
 export const getDepartments = async (req, res) => {
@@ -13,11 +15,7 @@ export const getDepartments = async (req, res) => {
 
 export const getProvincesByDepartmentId = async (req, res) => {
 
-    const { departmentId } = req.query;
-
-    if (!departmentId) return res.status(400).json({
-        message: 'departmentId query is missing'
-    });
+    const { departmentId } = req.params;
 
     try {
         const provinces = await Province.findAll({
@@ -34,11 +32,7 @@ export const getProvincesByDepartmentId = async (req, res) => {
 }
 
 export const getDistrictsByProvinceId = async (req, res) => {
-    const { provinceId } = req.query;
-
-    if (!provinceId) return res.status(400).json({
-        message: 'provinceId query is missing'
-    });
+    const { provinceId } = req.params;
     
     try {
         const districts = await District.findAll({
@@ -62,5 +56,39 @@ export const getDistrictById = async (req, res) => {
         res.status(200).json(district);
     } catch (err) {
         res.status(500).json(err);
+    }
+}
+
+export const getEstablishmentsByUbigeo = async (req, res) => {
+
+    const { id } = req.params;
+
+    try {
+        const establishments = await Establishment.findAll({
+            where: {
+                ubigeoId: id
+            },
+            order: ['name']
+        });
+
+        res.status(200).json(establishments)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+}
+
+export const getPatientsByUbigeo = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const establishments = await Patient.findAll({
+            where: {
+                ubigeoId: id
+            }
+        });
+
+        res.status(200).json(establishments)
+    } catch (err) {
+        res.status(500).json(err)
     }
 }

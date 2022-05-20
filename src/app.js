@@ -15,6 +15,7 @@ import establishmentRouter from "./routes/establishment.routes";
 import referredRouter from "./routes/referred.routes";
 import establishmentSpecialtiesRouter from "./routes/establishment-specialties.routes";
 import establishmentDestinyServicesRouter from "./routes/establishment-destiny-services.routes";
+import serviceRouter from './routes/service.routes';
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use(
   "/api/v2/establishment-destiny-services",
   establishmentDestinyServicesRouter
 );
+app.use("/api/v2/services", serviceRouter);
 
 app.get("/", (req, res) => {
   res.send("Hola!");

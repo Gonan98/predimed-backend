@@ -1,11 +1,20 @@
 import { Router } from "express";
-import { getDepartments, getDistrictById, getDistrictsByProvinceId, getProvincesByDepartmentId } from "../controllers/ubigeo.controller";
+import {
+  getDepartments,
+  getDistrictById,
+  getDistrictsByProvinceId,
+  getEstablishmentsByUbigeo,
+  getPatientsByUbigeo,
+  getProvincesByDepartmentId,
+} from "../controllers/ubigeo.controller";
 
 const router = Router();
 
-router.get('/departments', getDepartments);
-router.get('/provinces', getProvincesByDepartmentId);
-router.get('/districts', getDistrictsByProvinceId);
-router.get('/districts/:id', getDistrictById);
+router.get("/departments", getDepartments);
+router.get("/departments/:departmentId/provinces", getProvincesByDepartmentId);
+router.get("/provinces/:provinceId/districts", getDistrictsByProvinceId);
+router.get("/:id", getDistrictById);
+router.get("/:id/establishments", getEstablishmentsByUbigeo);
+router.get("/:id/patients", getPatientsByUbigeo);
 
 export default router;
