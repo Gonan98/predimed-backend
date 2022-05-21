@@ -15,7 +15,8 @@ import establishmentRouter from "./routes/establishment.routes";
 import referredRouter from "./routes/referred.routes";
 import establishmentSpecialtiesRouter from "./routes/establishment-specialties.routes";
 import establishmentDestinyServicesRouter from "./routes/establishment-destiny-services.routes";
-import serviceRouter from './routes/service.routes';
+import incidenceRouter from "./routes/incidence.routes";
+import serviceRouter from "./routes/service.routes";
 
 const app = express();
 
@@ -35,12 +36,13 @@ app.use("/api/v2/symptoms", symptomRouter);
 app.use("/api/v2/ubigeo", ubigeoRouter);
 app.use("/api/v2/establishments", establishmentRouter);
 app.use("/api/v2/diagnostic", diagnosticRouter);
-// app.use("/api/v2/establishment-specialties", establishmentSpecialtiesRouter);
-// app.use(
-//   "/api/v2/establishment-destiny-services",
-//   establishmentDestinyServicesRouter
-// );
+app.use("/api/v2/establishment-specialties", establishmentSpecialtiesRouter);
+app.use(
+  "/api/v2/establishment-destiny-services",
+  establishmentDestinyServicesRouter
+);
 app.use("/api/v2/services", serviceRouter);
+app.use("/api/v2/incidences", incidenceRouter);
 
 app.get("/", (req, res) => {
   res.send("Hola!");
