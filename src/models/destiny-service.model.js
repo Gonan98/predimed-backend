@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../db";
 
 const DestinyService = sequelize.define(
-    'DestinyService',
+    'destinyService',
     {
         code: {
             type: DataTypes.STRING,
