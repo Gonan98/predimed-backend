@@ -33,7 +33,6 @@ export const getMyEstablishment = async (req, res) => {
         const user = await User.findByPk(req.user.id, {
             include: Establishment
         });
-        console.log(req);
         res.status(200).json(user.establishment);
     } catch (err) {
         res.status(500).json(err)
