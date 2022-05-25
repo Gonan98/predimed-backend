@@ -28,7 +28,7 @@ app.use("/api/v2/users", userRouter);
 app.use("/api/v2/diseases", diseaseRouter);
 app.use("/api/v2/patients", patientRouter);
 app.use("/api/v2/histories", historyRouter);
-app.use("/api/v2/references", referredRouter);
+app.use("/api/v2/referred", referredRouter);
 app.use("/api/v2/antecedents", antecedentRouter);
 app.use("/api/v2/symptoms", symptomRouter);
 app.use("/api/v2/ubigeo", ubigeoRouter);
