@@ -128,3 +128,6 @@ NoReferred.belongsToMany(Symptom, { through: 'no_referred_patient_symptopms' });
 
 Disease.hasMany(Referred);
 Referred.belongsTo(Disease);
+
+Referred.hasMany(LabExam);
+LabExam.belongsTo(Referred);
