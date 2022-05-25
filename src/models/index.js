@@ -50,9 +50,6 @@ Referred.belongsTo(Establishment, {
     }
 })
 
-Referred.hasMany(LabExam);
-LabExam.belongsTo(Referred);
-
 DestinyService.hasMany(Referred);
 Referred.belongsTo(DestinyService);
 

@@ -8,7 +8,8 @@ const LabExam = sequelize.define('labExam', {
         unique: true
     }
 }, { 
-    timestamps: false
+    timestamps: false,
+    underscored: true
 });
 
 export default LabExam;
