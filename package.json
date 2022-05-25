@@ -24,7 +24,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.16.1"
+    "sequelize": "^5.22.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.0",
