@@ -12,6 +12,8 @@ export class NN {
     }
 
     getMax() {
-        return this.outputs.reduce((max, o) => max.value > o.value ? max : o);
+        const max = this.outputs.reduce((max, o) => max.value > o.value ? max : o);
+        max.value = +(Math.round(max.value + 'e+2') + 'e-2');
+        return max;
     }
 }

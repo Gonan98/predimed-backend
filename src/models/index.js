@@ -10,6 +10,7 @@ import EstablishmentSpecialty from "./establishment-specialties.model";
 import Establishment from "./establishment.model";
 import History from "./history.model";
 import Incidence from "./incidence.model";
+import LabExam from "./lab-exam.model";
 import NoReferred from "./no-referred.model";
 import Patient from "./patient.model";
 import Province from "./province.model";
@@ -127,3 +128,6 @@ NoReferred.belongsToMany(Symptom, { through: 'no_referred_patient_symptopms' });
 
 Disease.hasMany(Referred);
 Referred.belongsTo(Disease);
+
+Referred.hasMany(LabExam);
+LabExam.belongsTo(Referred);

@@ -6,7 +6,7 @@ import './models';
 
 async function main() {
     try {
-        await sequelize.sync();
+        await sequelize.sync({ alter: true });
         console.log('Database connected');
     } catch (error) {
         console.error('Unable to connect to database');

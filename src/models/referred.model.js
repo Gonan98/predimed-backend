@@ -8,6 +8,10 @@ const Referred = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
+        patientStatus: {
+            type: DataTypes.STRING,
+            defaultValue: 'ESTABLE'
+        },
         referenceDate: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW

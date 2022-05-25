@@ -1,3 +1,4 @@
+import LabExam from "../models/lab-exam.model";
 import Referred from "../models/referred.model";
 
 export const addReferred = async (req, res) => {
@@ -33,15 +34,48 @@ export const addReferred = async (req, res) => {
   }
 };
 
-export const getAllReferreds = async (req, res) => {
-  try {
-    const referreds = await Referred.findAll();
+export const getReferences = async (req, res) => {
 
-    res.status(200).json(referreds);
+  let references = [];
+
+  try {
+    if (req.user.isAdmin) {
+      references = await Referred.findAll();
+    } else {
+      references = await Referred.findAll({
+        where: {
+          userId: req.user.id
+        }
+      });
+    }
+
+    res.status(200).json(references);
   } catch (err) {
     res.status(500).json(err);
   }
-};
+}
+
+export const getReferenceById = async (req, res) => {
+  const { id } = req.params;
+  let reference = null;
+  try {
+    if (req.user.isAdmin) {
+      reference = await Referred.findByPk(id);
+    } else {
+      reference = await Referred.findOne({
+        where: {
+          id,
+          userId: req.user.id
+        }
+      });
+    }
+
+    if (!reference) return res.status(404).json({ message: 'The reference does not exist' });
+    res.status(200).json(reference);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
 
 export const getReferredsByPatient = async (req, res) => {
 
@@ -58,3 +92,16 @@ export const getReferredsByPatient = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+export const getLabExamsByReferred = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const labExams = await LabExam.findAll({
+      where: { referredId: id }
+    });
+    res.status(200).json(labExams);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}

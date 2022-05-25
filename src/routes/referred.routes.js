@@ -1,14 +1,19 @@
 import { Router } from "express";
 import {
   addReferred,
-  getAllReferreds,
+  getLabExamsByReferred,
+  getReferenceById,
+  getReferences,
   getReferredsByPatient,
 } from "../controllers/referred.controller";
+import { verifyToken } from "../middlewares/authentication";
 
 const router = Router();
 
-router.post("/", addReferred);
-router.get("/", getAllReferreds);
-router.get("/patient/:patientId", getReferredsByPatient);
+router.post("/", verifyToken, addReferred);
+router.get("/", verifyToken, getReferences);
+router.get("/:id", verifyToken, getReferenceById);
+router.get("/:id/laboratory-exams", verifyToken, getLabExamsByReferred);
+router.get("/patient/:patientId", verifyToken, getReferredsByPatient);
 
 export default router;
