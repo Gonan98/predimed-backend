@@ -10,6 +10,7 @@ async function main() {
         console.log('Database connected');
     } catch (error) {
         console.error('Unable to connect to database');
+        console.error(error);
     }
 
     app.listen(config.port, () => {
