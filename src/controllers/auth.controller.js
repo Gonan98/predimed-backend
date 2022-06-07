@@ -1,93 +1,115 @@
-import Cryptojs from 'crypto-js';
-import jwt from 'jsonwebtoken';
-import config from '../config';
-import User from '../models/user.model';
+import Cryptojs from "crypto-js";
+import jwt from "jsonwebtoken";
+import config from "../config";
+import User from "../models/user.model";
 
 export const signUp = async (req, res) => {
-    const { firstName, lastName, username, password, isAdmin } = req.body;
+  const {
+    firstName,
+    lastName,
+    username,
+    password,
+    isAdmin,
+    establishmentCode,
+  } = req.body;
 
-    if (!firstName || !lastName || !username || !password || !isAdmin)
-        return res.status(400).json({
-            message: 'Some data is missing'
-        });
+  if (
+    !firstName ||
+    !lastName ||
+    !username ||
+    !password ||
+    !isAdmin ||
+    !establishmentCode
+  )
+    return res.status(400).json({
+      message: "Some data is missing",
+    });
 
-    const hashedPassword = Cryptojs.AES.encrypt(
-        password,
-        config.cryptoSecret
-    ).toString();
+  const hashedPassword = Cryptojs.AES.encrypt(
+    password,
+    config.cryptoSecret
+  ).toString();
 
-    try {
-        await User.create({
-            firstName,
-            lastName,
-            username,
-            password: hashedPassword,
-            isAdmin
-        });
+  try {
+    await User.create({
+      firstName,
+      lastName,
+      username,
+      password: hashedPassword,
+      isAdmin,
+      establishmentCode,
+    });
 
-        res.status(201).json({
-            message: 'User registered successfully'
-        })
-    } catch (error) {
-        res.status(500).json(error);
-    }
-}
+    res.status(201).json({
+      message: "User registered successfully",
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
 
 export const signIn = async (req, res) => {
-    const { username, password } = req.body;
+  const { username, password } = req.body;
 
-    if (!username || !password) {
-        return res.status(400).json({
-            message: 'Some data is missing'
-        })
-    }
+  if (!username || !password) {
+    return res.status(400).json({
+      message: "Some data is missing",
+    });
+  }
 
-    try {
+  try {
+    const userDB = await User.findOne({
+      where: { username },
+    });
 
-        const userDB = await User.findOne({
-            where: { username }
-        });
+    if (!userDB)
+      return res
+        .status(400)
+        .json({ message: "Incorrect username or password" });
 
-        if (!userDB) return res.status(400).json({ message: 'Incorrect username or password' });
+    const hashedPassword = Cryptojs.AES.decrypt(
+      userDB.password,
+      config.cryptoSecret
+    );
 
-        const hashedPassword = Cryptojs.AES.decrypt(
-            userDB.password,
-            config.cryptoSecret
-        );
+    const originalPassword = hashedPassword.toString(Cryptojs.enc.Utf8);
 
-        const originalPassword = hashedPassword.toString(Cryptojs.enc.Utf8);
+    if (password !== originalPassword)
+      return res
+        .status(400)
+        .json({ message: "Incorrect username or password" });
 
-        if (password !== originalPassword) return res.status(400).json({ message: 'Incorrect username or password' });
+    const token = jwt.sign(
+      { id: userDB.id, isAdmin: userDB.isAdmin },
+      config.jwtSecret,
+      { expiresIn: 86400 }
+    );
 
-        const token = jwt.sign({ id: userDB.id, isAdmin: userDB.isAdmin }, config.jwtSecret, { expiresIn: 86400 });
-
-        res.status(200).json({
-            token,
-            isAdmin: userDB.isAdmin
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            message: error
-        });
-    }
-}
+    res.status(200).json({
+      token,
+      isAdmin: userDB.isAdmin,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error,
+    });
+  }
+};
 
 export const myProfile = async (req, res) => {
-    try {
-        const userDB = await User.findByPk(req.user.id, {
-            attributes: {
-                exclude: ['password']
-            },
-        });
+  try {
+    const userDB = await User.findByPk(req.user.id, {
+      attributes: {
+        exclude: ["password"],
+      },
+    });
 
-        if (!userDB) return res.status(404).json({ message: 'User not found' });
+    if (!userDB) return res.status(404).json({ message: "User not found" });
 
-        res.status(200).json(userDB);
-    } catch (error) {
-        res.status(500).json({
-            message: 'An error has occurred'
-        });
-    }
-}
-
+    res.status(200).json(userDB);
+  } catch (error) {
+    res.status(500).json({
+      message: "An error has occurred",
+    });
+  }
+};

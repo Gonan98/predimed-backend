@@ -1,13 +1,19 @@
-import { Sequelize } from 'sequelize';
-import config from './config';
+import { Sequelize } from "sequelize";
+import config from "./config";
 
-const sequelize = new Sequelize(config.dbURL, {
+let sequelize = null;
+
+if (process.env.NODE_ENV === "production") {
+  sequelize = new Sequelize(config.dbURL, {
     dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
-    }
-});
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  });
+} else {
+  sequelize = new Sequelize(config.dbURL);
+}
 
 export default sequelize;
