@@ -7,6 +7,7 @@ const sequelize = new Sequelize(
   config.dbPassword,
   {
     dialect: "mysql",
+    host: config.dbHost,
   }
 );
 
