@@ -10,6 +10,7 @@ export const signUp = async (req, res) => {
     username,
     password,
     isAdmin,
+    documentNumber,
     establishmentCode,
   } = req.body;
 
@@ -18,7 +19,8 @@ export const signUp = async (req, res) => {
     !lastName ||
     !username ||
     !password ||
-    !isAdmin ||
+    !documentNumber ||
+    isAdmin === undefined ||
     !establishmentCode
   )
     return res.status(400).json({
@@ -36,6 +38,7 @@ export const signUp = async (req, res) => {
       lastName,
       username,
       password: hashedPassword,
+      documentNumber,
       isAdmin,
       establishmentCode,
     });
