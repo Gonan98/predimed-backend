@@ -1,5 +1,10 @@
+import DestinyService from "../models/destiny-service.model";
+import Establishment from "../models/establishment.model";
+import History from "../models/history.model";
 import LabExam from "../models/lab-exam.model";
 import Referred from "../models/referred.model";
+import Service from "../models/service.model";
+import Specialty from "../models/specialty.model";
 
 export const addReferred = async (req, res) => {
   const {
@@ -11,6 +16,7 @@ export const addReferred = async (req, res) => {
     specialtyCode,
     patientId,
     diseaseCode,
+    historyId
   } = req.body;
 
   try {
@@ -24,6 +30,7 @@ export const addReferred = async (req, res) => {
       specialtyCode,
       patientId,
       diseaseCode,
+      historyId
     });
 
     res.status(201).json({
@@ -60,13 +67,14 @@ export const getReferenceById = async (req, res) => {
   let reference = null;
   try {
     if (req.user.isAdmin) {
-      reference = await Referred.findByPk(id);
+      reference = await Referred.findByPk(id, { include: [History, Establishment, DestinyService, Service, Specialty] });
     } else {
       reference = await Referred.findOne({
         where: {
           id,
           userId: req.user.id
-        }
+        },
+        include: [History, Establishment, DestinyService, Service, Specialty]
       });
     }
 

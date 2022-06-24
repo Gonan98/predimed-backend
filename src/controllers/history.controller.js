@@ -14,7 +14,7 @@ export const addHistory = async (req, res) => {
   } = req.body;
 
   try {
-    await History.create({
+    const newHistory = await History.create({
       weight,
       height,
       pressure,
@@ -25,9 +25,10 @@ export const addHistory = async (req, res) => {
       examSummary,
       patientId,
     });
-
+    
     res.status(201).json({
       message: "History added successfuly",
+      id: newHistory.id
     });
   } catch (err) {
     res.status(500).json(err);

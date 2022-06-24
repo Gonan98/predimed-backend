@@ -1,3 +1,5 @@
+USE predimed;
+
 INSERT INTO ubigeo_peru_departments (id, name) VALUES
 ('01', 'Amazonas'),
 ('02', 'Áncash'),

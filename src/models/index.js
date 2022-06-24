@@ -64,6 +64,9 @@ Referred.belongsTo(Service);
 Specialty.hasMany(Referred);
 Referred.belongsTo(Specialty);
 
+History.hasOne(Referred);
+Referred.belongsTo(History);
+
 Department.hasMany(Province);
 Province.belongsTo(Department, {
   foreignKey: {
