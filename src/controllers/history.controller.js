@@ -10,7 +10,6 @@ export const addHistory = async (req, res) => {
     respirationRate,
     anamnesis,
     examSummary,
-    labExam,
     patientId
   } = req.body;
 
@@ -24,7 +23,6 @@ export const addHistory = async (req, res) => {
       respirationRate,
       anamnesis,
       examSummary,
-      labExam,
       patientId,
     });
     
