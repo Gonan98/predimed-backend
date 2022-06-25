@@ -34,6 +34,9 @@ const History = sequelize.define(
         },
         examSummary: {
             type: DataTypes.STRING,
+        },
+        labExam: {
+            type: DataTypes.STRING,
         }
     },
     {
